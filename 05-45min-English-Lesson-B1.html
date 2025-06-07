@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B1 English Grammar Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .quiz-option {
+            transition: all 0.2s ease-in-out;
+        }
+        .quiz-option.selected {
+            background-color: #3b82f6; /* bg-blue-500 */
+            color: white;
+            border-color: #2563eb; /* border-blue-600 */
+        }
+        .quiz-option.correct {
+            background-color: #22c55e; /* bg-green-500 */
+            color: white;
+            border-color: #16a34a; /* border-green-600 */
+        }
+        .quiz-option.incorrect {
+            background-color: #ef4444; /* bg-red-500 */
+            color: white;
+            border-color: #dc2626; /* border-red-600 */
+        }
+        .quiz-container, .results-container {
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+        .hidden-transform {
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            position: absolute;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 flex items-center justify-center min-h-screen p-4">
+
+    <main class="w-full max-w-2xl mx-auto">
+        <!-- Quiz Container -->
+        <div id="quiz-container" class="quiz-container bg-white p-6 sm:p-8 rounded-2xl shadow-lg">
+            <h1 class="text-3xl font-bold text-center text-slate-700 mb-2">B1 Grammar Challenge</h1>
+            <p class="text-center text-slate-500 mb-6">Test your knowledge of key B1 grammar points.</p>
+            <div id="quiz-questions">
+                <!-- Questions will be dynamically inserted here -->
+            </div>
+            <button id="submit-btn" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all duration-300 mt-6 text-lg shadow-md hover:shadow-lg">
+                Check My Answers
+            </button>
+        </div>
+
+        <!-- Results Container -->
+        <div id="results-container" class="results-container bg-white p-6 sm:p-8 rounded-2xl shadow-lg text-center hidden-transform">
+            <h2 class="text-3xl font-bold text-slate-700 mb-4">Quiz Complete!</h2>
+            <div class="my-6">
+                <p class="text-lg text-slate-600">You scored:</p>
+                <p id="score-text" class="text-6xl font-bold text-blue-600 my-2">0%</p>
+                <p id="feedback-text" class="text-lg font-medium text-slate-500">Keep practicing!</p>
+            </div>
+            <div id="progress-bar-container" class="w-full bg-slate-200 rounded-full h-4 mb-6">
+                <div id="progress-bar" class="bg-blue-600 h-4 rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+            <button id="try-again-btn" class="w-full bg-slate-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-slate-700 focus:outline-none focus:ring-4 focus:ring-slate-300 transition-all duration-300 text-lg shadow-md hover:shadow-lg">
+                Try Again
+            </button>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- DATA ---
+            const quizData = [
+                {
+                    question: "They look exhausted. They ______ all day.",
+                    options: ["have worked", "has been working", "have been working", "were working"],
+                    answer: "have been working",
+                    topic: "Present Perfect Continuous"
+                },
+                {
+                    question: "How long ______ you ______ Japanese?",
+                    options: ["has / been learning", "have / learning", "are / learning", "have / been learning"],
+                    answer: "have / been learning",
+                    topic: "Present Perfect Continuous"
+                },
+                {
+                    question: "When I arrived, I realized I ______ my wallet at home.",
+                    options: ["have left", "had left", "was leaving", "leave"],
+                    answer: "had left",
+                    topic: "Past Perfect"
+                },
+                {
+                    question: "The movie ______ by the time we got to the cinema.",
+                    options: ["already started", "has already started", "had already started", "was starting"],
+                    answer: "had already started",
+                    topic: "Past Perfect"
+                },
+                 {
+                    question: "This time tomorrow, we ______ on a tropical beach.",
+                    options: ["will relax", "are relaxing", "will be relaxing", "relax"],
+                    answer: "will be relaxing",
+                    topic: "Future Continuous"
+                },
+                {
+                    question: "Don't call me between 7 and 8 PM. I ______ dinner with my family.",
+                    options: ["will be having", "will have", "am having", "have"],
+                    answer: "will be having",
+                    topic: "Future Continuous"
+                },
+                {
+                    question: "If I ______ you, I would apologize to her.",
+                    options: ["am", "was", "were", "would be"],
+                    answer: "were",
+                    topic: "Second Conditional"
+                },
+                {
+                    question: "What would you do if you ______ a million dollars?",
+                    options: ["win", "won", "had won", "would win"],
+                    answer: "won",
+                    topic: "Second Conditional"
+                },
+                {
+                    question: "If she ______ harder, she would have passed the exam.",
+                    options: ["studied", "had studied", "would study", "studies"],
+                    answer: "had studied",
+                    topic: "Third Conditional"
+                },
+                {
+                    question: "We ______ the train if we hadn't left so late.",
+                    options: ["wouldn't miss", "wouldn't have missed", "didn't miss", "hadn't missed"],
+                    answer: "wouldn't have missed",
+                    topic: "Third Conditional"
+                },
+                {
+                    question: "He ______ his phone for hours, but he still can't find it.",
+                    options: ["has been looking for", "had looked for", "is looking for", "was looking for"],
+                    answer: "has been looking for",
+                    topic: "Present Perfect Continuous"
+                },
+                 {
+                    question: "If you ______ me about the party, I would have gone.",
+                    options: ["told", "tell", "have told", "had told"],
+                    answer: "had told",
+                    topic: "Third Conditional"
+                }
+            ];
+
+            // --- ELEMENTS ---
+            const quizContainer = document.getElementById('quiz-container');
+            const resultsContainer = document.getElementById('results-container');
+            const quizQuestionsContainer = document.getElementById('quiz-questions');
+            const submitBtn = document.getElementById('submit-btn');
+            const tryAgainBtn = document.getElementById('try-again-btn');
+            const scoreText = document.getElementById('score-text');
+            const feedbackText = document.getElementById('feedback-text');
+            const progressBar = document.getElementById('progress-bar');
+            
+            let userAnswers = {};
+
+            // --- FUNCTIONS ---
+            
+            /**
+             * Shuffles an array in place.
+             * @param {Array} array The array to shuffle.
+             */
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+            }
+
+            /**
+             * Creates and displays the quiz questions.
+             */
+            function displayQuestions() {
+                quizQuestionsContainer.innerHTML = '';
+                shuffleArray(quizData); // Randomize question order each time
+                
+                quizData.forEach((item, index) => {
+                    const questionElement = document.createElement('div');
+                    questionElement.classList.add('mb-6', 'pb-6', 'border-b', 'border-slate-200');
+                    questionElement.setAttribute('data-question-index', index);
+
+                    const questionText = document.createElement('p');
+                    questionText.classList.add('text-lg', 'font-semibold', 'mb-4');
+                    questionText.textContent = `${index + 1}. ${item.question}`;
+                    
+                    const topicTag = document.createElement('span');
+                    topicTag.classList.add('text-xs', 'font-medium', 'bg-slate-200', 'text-slate-600', 'py-1', 'px-2', 'rounded-full', 'ml-2');
+                    topicTag.textContent = item.topic;
+                    questionText.appendChild(topicTag);
+
+                    const optionsContainer = document.createElement('div');
+                    optionsContainer.classList.add('grid', 'grid-cols-1', 'sm:grid-cols-2', 'gap-3');
+                    
+                    // Shuffle options as well for better learning
+                    const shuffledOptions = [...item.options];
+                    shuffleArray(shuffledOptions);
+
+                    shuffledOptions.forEach(option => {
+                        const optionButton = document.createElement('button');
+                        optionButton.type = 'button';
+                        optionButton.classList.add('quiz-option', 'w-full', 'p-3', 'rounded-lg', 'border-2', 'border-slate-300', 'text-left', 'hover:bg-blue-100', 'hover:border-blue-400', 'focus:outline-none', 'focus:ring-2', 'focus:ring-blue-300');
+                        optionButton.textContent = option;
+                        optionButton.onclick = () => selectAnswer(index, option, optionButton);
+                        optionsContainer.appendChild(optionButton);
+                    });
+
+                    questionElement.appendChild(questionText);
+                    questionElement.appendChild(optionsContainer);
+                    quizQuestionsContainer.appendChild(questionElement);
+                });
+            }
+
+            /**
+             * Handles the selection of an answer.
+             * @param {number} questionIndex - The index of the question.
+             * @param {string} answer - The selected answer text.
+             * @param {HTMLElement} selectedButton - The button element that was clicked.
+             */
+            function selectAnswer(questionIndex, answer, selectedButton) {
+                userAnswers[questionIndex] = answer;
+                
+                // Visually update the selected button
+                const parent = selectedButton.parentNode;
+                const allOptions = parent.querySelectorAll('.quiz-option');
+                allOptions.forEach(btn => btn.classList.remove('selected'));
+                selectedButton.classList.add('selected');
+            }
+
+            /**
+             * Calculates the score and shows the results.
+             */
+            function showResults() {
+                let score = 0;
+                
+                quizData.forEach((item, index) => {
+                    const questionElement = quizQuestionsContainer.querySelector(`[data-question-index="${index}"]`);
+                    const optionButtons = questionElement.querySelectorAll('.quiz-option');
+
+                    let correctAnswerButton = null;
+                    let userAnswerButton = null;
+
+                    optionButtons.forEach(button => {
+                        button.disabled = true; // Disable buttons after submission
+                        button.classList.remove('selected'); // Remove selection color
+                        
+                        if (button.textContent === item.answer) {
+                            correctAnswerButton = button;
+                        }
+                        if (button.textContent === userAnswers[index]) {
+                            userAnswerButton = button;
+                        }
+                    });
+
+                    if (userAnswers[index] === item.answer) {
+                        score++;
+                        correctAnswerButton.classList.add('correct');
+                    } else {
+                        if (userAnswerButton) {
+                           userAnswerButton.classList.add('incorrect');
+                        }
+                        correctAnswerButton.classList.add('correct');
+                    }
+                });
+
+                const percentage = Math.round((score / quizData.length) * 100);
+                scoreText.textContent = `${percentage}%`;
+                progressBar.style.width = `${percentage}%`;
+
+                if (percentage === 100) {
+                    feedbackText.textContent = "Excellent! You're a grammar master!";
+                    progressBar.classList.remove('bg-blue-600');
+                    progressBar.classList.add('bg-green-500');
+                } else if (percentage >= 75) {
+                    feedbackText.textContent = "Great job! You have a strong understanding.";
+                    progressBar.classList.remove('bg-green-500');
+                    progressBar.classList.add('bg-blue-600');
+                } else if (percentage >= 50) {
+                    feedbackText.textContent = "Good effort! A little more practice will help.";
+                    progressBar.classList.remove('bg-green-500');
+                    progressBar.classList.add('bg-blue-600');
+                } else {
+                    feedbackText.textContent = "Keep practicing! Review the incorrect answers.";
+                     progressBar.classList.remove('bg-green-500');
+                    progressBar.classList.add('bg-blue-600');
+                }
+
+                // Show results and hide quiz
+                quizContainer.classList.add('hidden-transform');
+                resultsContainer.classList.remove('hidden-transform');
+
+                // --- CHANGE: Scroll to top to show results ---
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            /**
+             * Resets the quiz to its initial state.
+             */
+            function resetQuiz() {
+                userAnswers = {};
+                displayQuestions(); // Redisplay questions (they will be reshuffled)
+                
+                // Hide results and show quiz
+                resultsContainer.classList.add('hidden-transform');
+                quizContainer.classList.remove('hidden-transform');
+            }
+
+            // --- EVENT LISTENERS ---
+            submitBtn.addEventListener('click', () => {
+                const answeredQuestions = Object.keys(userAnswers).length;
+                if (answeredQuestions < quizData.length) {
+                    // This is a simple validation. For a better UX, you might want a more noticeable alert.
+                    // For now, we'll just log to console and prevent submission.
+                    console.warn('Please answer all questions before submitting.');
+                    alert('Please answer all questions before submitting.');
+                    return;
+                }
+                showResults();
+            });
+            
+            tryAgainBtn.addEventListener('click', resetQuiz);
+
+            // --- INITIALIZATION ---
+            displayQuestions();
+        });
+    </script>
+
+</body>
+</html>
