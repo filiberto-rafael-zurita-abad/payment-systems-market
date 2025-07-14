@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Evolving Landscape of Global Digital Payments</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN for interactive charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <!-- Chart.js Datalabels Plugin for displaying values on charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0/dist/chartjs-plugin-datalabels.min.js"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fafc; /* Light gray background */
+            color: #4a5568; /* Darker gray text */
+        }
+        .container {
+            max-width: 1200px;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 1rem; /* Rounded corners */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        h1, h2, h3 {
+            color: #2b6cb0; /* Primary blue for headings */
+        }
+        .hero-bg {
+            background-color: #2b6cb0; /* Darker blue for hero section */
+        }
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 40vh; /* Responsive height */
+            width: 100%;
+            max-width: 700px; /* Max width for charts */
+        }
+        /* Custom colors for charts */
+        :root {
+            --chart-color-1: #4299e1; /* Blue */
+            --chart-color-2: #38b2ac; /* Teal */
+            --chart-color-3: #f6ad55; /* Orange */
+            --chart-color-4: #ed64a6; /* Pink */
+            --chart-color-5: #9f7aea; /* Purple */
+            --chart-color-6: #48bb78; /* Green */
+            --chart-color-7: #ecc94b; /* Yellow */
+            --chart-color-8: #fc8181; /* Red */
+            --chart-color-9: #a0aec0; /* Gray */
+            --chart-color-10: #667eea; /* Indigo */
+        }
+
+        /* Infographic specific styles */
+        .infographic-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .infographic-item {
+            background-color: #f0f4f8; /* Light blue-gray background */
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 500px;
+        }
+        .infographic-item h4 {
+            font-weight: bold;
+            color: #2b6cb0;
+            margin-bottom: 0.5rem;
+        }
+        .infographic-item p {
+            font-size: 0.9rem;
+            color: #4a5568;
+        }
+        .infographic-icon {
+            font-size: 2.5rem;
+            color: #4299e1;
+            margin-bottom: 0.75rem;
+        }
+        .infographic-arrow {
+            font-size: 2rem;
+            color: #a0aec0;
+            margin: 0.5rem 0;
+        }
+        @media (min-width: 768px) {
+            .infographic-container.horizontal {
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap; /* Allow wrapping for more items */
+            }
+            .infographic-container.horizontal .infographic-arrow {
+                display: none; /* Hide arrows for horizontal layout */
+            }
+            .infographic-item {
+                width: calc(50% - 1rem); /* Two columns: 50% width minus gap */
+                min-width: 280px; /* Ensure readability */
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header/Hero Section -->
+    <header class="hero-bg text-white py-16 px-4 rounded-b-3xl shadow-lg">
+        <div class="container mx-auto text-center">
+            <h1 class="text-5xl font-extrabold mb-4">The Evolving Landscape of Global Digital Payments</h1>
+            <p class="text-xl font-light opacity-90">Market Dynamics, Key Players, and Future Trajectories</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto py-12 px-4">
+
+        <!-- Executive Summary Section -->
+        <section class="mb-12">
+            <div class="card p-8">
+                <h2 class="text-3xl font-bold mb-6 text-center">I. Executive Summary</h2>
+                <p class="text-lg leading-relaxed text-gray-700">
+                    The global digital payment market is rapidly changing. This report looks at its growth, how it's divided, and what big companies like PayPal and Stripe are doing. Key trends include more mobile payments, using AI for security, and payment companies offering more financial services. These changes mean companies need to keep adapting. Top players are building complete digital systems, using their large customer bases and tech skills to find new ways to make money and change how we handle money globally.
+                </p>
+            </div>
+        </section>
+
+        <!-- Global Digital Payment Market Overview Section -->
+        <section class="mb-12">
+            <div class="card p-8">
+                <h2 class="text-3xl font-bold mb-6 text-center">II. Global Digital Payment Market Overview</h2>
+                <p class="text-lg leading-relaxed text-gray-700 mb-8">
+                    Digital payments are a core part of today's global economy, making transactions easy everywhere. Understanding its size and structure is key to seeing its big impact.
+                </p>
+
+                <!-- Market Size, Growth, and Forecasts -->
+                <div class="mb-10" id="market-size-growth-section">
+                    <h3 class="text-2xl font-semibold mb-4 text-center">Market Size, Growth, and Forecasts (2024-2034)</h3>
+                    <p class="text-base leading-relaxed text-gray-600 mb-6">
+                        The digital payment market is growing fast. This section focuses on **Provider Revenue**, which is the money payment companies *earn* from their services like transaction fees.
+                        <br><br>
+                        The market revenue for digital payment *solution providers* was around $114-$145 billion in 2024, and it's expected to grow significantly, potentially reaching over $700 billion by 2034. This shows healthy growth for the companies themselves. The graph below illustrates this growth trend.
+                    </p>
+                    <div class="chart-container">
+                        <canvas id="marketRevenueForecastChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Market Segmentation Analysis -->
+                <div class="mb-10">
+                    <h3 class="text-2xl font-semibold mb-4 text-center">Market Segmentation Analysis</h3>
+                    <p class="text-base leading-relaxed text-gray-600 mb-6">
+                        The digital payment market can be broken down in many ways. Digital wallets are very popular, used in half of all online shopping in 2024, and are expected to be the top payment method both online and in stores by 2027. This shift is largely helped by governments and new instant payment systems, especially in fast-growing countries.
+                    </p>
+                    <div class="space-y-8">
+                        <div class="chart-container mb-8">
+                            <canvas id="paymentModeWaffleChart"></canvas>
+                        </div>
+                        <br>
+                        <div class="chart-container">
+                            <canvas id="endUserVerticalBarChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Regional Market Dynamics -->
+                <div class="mb-10" id="regional-market-dynamics-section">
+                    <h3 class="text-2xl font-semibold mb-4 text-center">Regional Market Dynamics and Key Growth Drivers</h3>
+                    <p class="text-base leading-relaxed text-gray-600 mb-6">
+                        How much digital payments are used varies a lot by region. Asia-Pacific is the biggest and fastest-growing area, thanks to more smartphones and digital wallets. However, people in places like Europe and North America are sometimes slower to trust new digital payment methods due to privacy worries. This means companies need different strategies for different regions.
+                    </p>
+                    <div class="chart-container">
+                        <canvas id="regionalMarketShareChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- New Infographic: Understanding Total Payment Volume (TPV) -->
+                <div class="mb-10">
+                    <h3 class="text-2xl font-semibold mb-4 text-center">Understanding Total Payment Volume (TPV) and the Rise of Super Apps</h3>
+                    <p class="text-base leading-relaxed text-gray-600 mb-6">
+                        Beyond the revenue that payment companies earn, there's a much larger figure that reflects the sheer scale of money moving through digital channels: **Total Payment Volume (TPV)**. TPV represents the entire value of all transactions processed digitally, from a quick tap-to-pay at a coffee shop to massive online purchases. It's a key indicator of the overall economic activity facilitated by digital payments.
+                        <br><br>
+                        A major driver of high TPV, especially in regions like Asia-Pacific, is the emergence of **"Super Apps."** Imagine an app that isn't just for messaging or payments, but for *everything*: ordering food, booking rides, managing investments, and, of course, making payments. These "super apps" seamlessly integrate a vast array of daily services, making them central to users' digital lives. Because users spend so much time within these apps, making countless transactions for different services, the TPV they generate is enormous. This model has transformed how people interact with money and digital services in many parts of the world. Let's look at some TPV figures from around the world, and then dive deeper into the "Super App" concept.
+                    </p>
+                    <div class="infographic-container horizontal" id="tpv-infographic-section">
+                        <div class="infographic-item">
+                            <i class="fas fa-globe infographic-icon"></i>
+                            <h4>Global Payments Revenue</h4>
+                            <p>Expected to surpass $3 trillion by 2028. This is the massive total value of money changing hands digitally worldwide.</p>
+                        </div>
+                        <!-- No arrow here for two-column layout -->
+                        <div class="infographic-item">
+                            <i class="fas fa-chart-area infographic-icon"></i>
+                            <h4>China Payments Market</h4>
+                            <p>Estimated at $43.65 trillion in 2025, projected to reach $65.30 trillion by 2030. A huge example of TPV in a single region.</p>
+                        </div>
+                        <!-- No arrow here for two-column layout -->
+                        <div class="infographic-item">
+                            <i class="fas fa-dollar-sign infographic-icon"></i>
+                            <h4>US Digital Payments TPV</h4>
+                            <p>~$12-15 trillion in 2024. Reflects a mature and diverse digital transaction landscape.</p>
+                        </div>
+                        <!-- No arrow here for two-column layout -->
+                        <div class="infographic-item">
+                            <i class="fas fa-yen-sign infographic-icon"></i>
+                            <h4>Japan Digital Payments TPV</h4>
+                            <p>~$4-6 trillion in 2024. Driven by mobile wallets and QR codes.</p>
+                        </div>
+                        <!-- No arrow here for two-column layout -->
+                        <div class="infographic-item">
+                            <i class="fas fa-won-sign infographic-icon"></i>
+                            <h4>South Korea Digital Payments TPV</h4>
+                            <p>~$2-3 trillion in 2024. High adoption of digital payments in daily life.</p>
+                        </div>
+                        <!-- No arrow here for two-column layout -->
+                        <div class="infographic-item">
+                            <i class="fas fa-brazilian-real-sign infographic-icon"></i>
+                            <h4>Brazil Digital Payments TPV</h4>
+                            <p>~$1-2 trillion in 2024. Rapid growth fueled by Pix and mobile banking.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Deep Dive: Major Digital Payment Players Section -->
+        <section class="mb-12">
+            <div class="card p-8">
+                <h2 class="text-3xl font-bold mb-6 text-center">III. Deep Dive: Major Digital Payment Players</h2>
+                <p class="text-lg leading-relaxed text-gray-700 mb-8">
+                    Many big companies shape the global digital payment market, each with their own ways of doing business and strengths. Here's a closer look at some of them.
+                </p>
+
+                <!-- Player Comparison Charts -->
+                <div class="space-y-8">
+                    <div class="mb-8" id="player-tpv-comparison-section">
+                        <h3 class="text-2xl font-semibold mb-4 text-center">Major Player Total Payment Volume (TPV) Comparison</h3>
+                        <p class="text-base leading-relaxed text-gray-600 mb-6">
+                            This chart compares the total value of payments handled by several leading companies, illustrating their immense scale and reach in the global market. Note the significant differences in scale, with some players operating at tens of trillions of dollars in TPV annually.
+                        </p>
+                        <div class="chart-container">
+                            <canvas id="playerTPVComparisonChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="mb-8" id="player-revenue-comparison-section">
+                        <h3 class="text-2xl font-semibold mb-4 text-center">Major Player Revenue Comparison</h3>
+                        <p class="text-base leading-relaxed text-gray-600 mb-6">
+                            Here's how the top digital payment companies stack up in terms of the money they make each year.
+                        </p>
+                        <div class="chart-container">
+                            <canvas id="playerRevenueComparisonChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Player Capabilities Radar Chart -->
+                <div class="mb-8" id="player-capabilities-section">
+                    <h3 class="text-2xl font-semibold mb-4 text-center">Major Player Capability Comparison</h3>
+                    <p class="text-base leading-relaxed text-gray-600 mb-6">
+                        This chart shows how strong each major player is in different key areas, like global presence, focus on online sales, or use of new technologies.
+                    </p>
+                    <div class="chart-container">
+                        <canvas id="playerCapabilitiesRadarChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- New Section: Key Strategic Insights from Major Players -->
+                <div class="mb-8" id="key-strategic-insights-section">
+                    <h3 class="text-2xl font-semibold mb-4 text-center">Key Strategic Insights from Major Players</h3>
+                    <p class="text-base leading-relaxed text-gray-600 mb-6">
+                        Beyond the raw numbers, each major player demonstrates unique strategic approaches and competitive advantages. Here are key insights into their business models and future directions:
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="infographic-item">
+                            <i class="fas fa-wallet infographic-icon"></i>
+                            <h4>PayPal: Evolving to Ecosystem</h4>
+                            <p>Expanding beyond core payments into BNPL, crypto, and AI-driven personalization to build a comprehensive financial ecosystem.</p>
+                        </div>
+                        <div class="infographic-item">
+                            <i class="fas fa-chart-line infographic-icon"></i>
+                            <h4>Stripe: Profitable Innovation</h4>
+                            <p>Achieved profitability, enabling significant self-funded R&D in AI and programmable financial services for competitive edge.</p>
+                        </div>
+                        <div class="infographic-item">
+                            <i class="fas fa-handshake infographic-icon"></i>
+                            <h4>Adyen: Enterprise Partnership</h4>
+                            <p>Focuses on deep, long-term partnerships with large enterprises, driving growth through existing client expansion and low churn.</p>
+                        </div>
+                        <div class="infographic-item">
+                            <i class="fas fa-credit-card infographic-icon"></i>
+                            <h4>PayU: Adapting to Regulation</h4>
+                            <p>Diversifying with value-added services and credit, leveraging AI to counter regulatory pressures and competition in India.</p>
+                        </div>
+                        <div class="infographic-item">
+                            <i class="fas fa-qrcode infographic-icon"></i>
+                            <h4>Alipay: China's Super Ecosystem</h4>
+                            <p>Dominant mobile payment in China, integrating vast services from e-commerce to wealth management within a comprehensive ecosystem.</p>
+                        </div>
+                        <div class="infographic-item">
+                            <i class="fas fa-comments infographic-icon"></i>
+                            <h4>WeChat Pay: Social Payments Powerhouse</h4>
+                            <p>Embedded in WeChat's messaging app, leveraging Mini Programs and social engagement to drive payments and diverse revenue.</p>
+                        </div>
+                        <div class="infographic-item">
+                            <i class="fas fa-hand-holding-usd infographic-icon"></i>
+                            <h4>Worldpay: Specialized Merchant Focus</h4>
+                            <p>Strategic consolidation and focus on embedded payments and merchant services for operational efficiency and market specialization.</p>
+                        </div>
+                        <div class="infographic-item">
+                            <i class="fas fa-sitemap infographic-icon"></i>
+                            <h4>Worldline: Diversified Service Portfolio</h4>
+                            <p>Offers broad services (Merchant, Financial, Mobility) and flexible models (SaaS, BPO) to mitigate risk and capture diverse growth.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New Section: Conclusion on Major Players -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-semibold mb-4 text-center">Conclusion on Major Players</h3>
+                    <p class="text-base leading-relaxed text-gray-600 mb-6">
+                        The analysis of these major digital payment players reveals a dynamic and evolving competitive landscape. While some, like Alipay and WeChat Pay, dominate through expansive "super app" ecosystems and massive TPV, others like PayPal, Stripe, and Adyen are carving out significant niches through innovation, specialized services, and deep merchant integration. The varying TPV, revenue, and capability profiles underscore that success in this market is not monolithic. Companies are strategically adapting to regulatory environments (e.g., PayU), leveraging profitability for R&D (Stripe), and diversifying service portfolios (Worldline) to ensure sustained growth and resilience. The trend points towards a future where payment providers are increasingly becoming comprehensive fintech partners, offering a wide array of embedded financial services beyond simple transaction processing.
+                    </p>
+                </div>
+
+                <!-- Infographic: The 'Super App' Model (Reverted to single column) -->
+                <div class="infographic-container mt-12" id="super-app-infographic">
+                    <div class="infographic-item">
+                        <i class="fas fa-mobile-alt infographic-icon"></i>
+                        <h4>The 'Super App' Model: Your Digital Command Center</h4>
+                        <p>Imagine an app that's not just for messaging or payments, but for *everything* in your digital life. Platforms like Alipay and WeChat Pay in Asia have perfected this "super app" model. They combine payments with a vast array of daily services like ordering food, booking rides, managing investments, and even interacting with government services, all within one seamless application. This makes them central to users' lives and creates countless opportunities for transactions and revenue generation.</p>
+                    </div>
+                    <i class="fas fa-arrow-down infographic-arrow"></i>
+                    <div class="infographic-item">
+                        <i class="fas fa-comments infographic-icon"></i>
+                        <h4>1. Messaging & Social Foundation</h4>
+                        <p>Often starts with a highly engaging social platform (e.g., chat, social feeds) that captures daily user attention.</p>
+                    </div>
+                    <i class="fas fa-arrow-down infographic-arrow"></i>
+                    <div class="infographic-item">
+                        <i class="fas fa-shopping-cart infographic-icon"></i>
+                        <h4>2. E-commerce & Lifestyle Services</h4>
+                        <p>Expands by integrating popular services like online shopping, food delivery, ride-hailing, and utility payments directly into the app.</p>
+                    </div>
+                    <i class="fas fa-arrow-down infographic-arrow"></i>
+                    <div class="infographic-item">
+                        <i class="fas fa-wallet infographic-icon"></i>
+                        <h4>3. Seamless Digital Payments</h4>
+                        <p>Payments are then effortlessly embedded across all these services, making transactions frictionless and intuitive.</p>
+                    </div>
+                    <i class="fas fa-arrow-down infographic-arrow"></i>
+                    <div class="infographic-item">
+                        <i class="fas fa-chart-line infographic-icon"></i>
+                        <h4>4. Financial Services Expansion</h4>
+                        <p>Finally, the app often adds more sophisticated financial services like lending, insurance, and wealth management, completing a comprehensive digital ecosystem.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Q&A Section -->
+        <section>
+            <div class="card p-8">
+                <h2 class="text-3xl font-bold mb-6 text-center">IV. Q&A with the Market Researcher</h2>
+                <div class="space-y-8 text-gray-700">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2 text-blue-700">Management: What are the primary drivers behind the overall growth of the global digital payment market?</h3>
+                        <p class="leading-relaxed pl-4 border-l-4 border-blue-300">
+                            <strong>Market Researcher:</strong> The digital payment market is experiencing robust growth, as clearly projected in the "Market Revenue Forecast Chart" within the "Market Size, Growth, and Forecasts" section. The underlying drivers for this expansion are detailed in the "Regional Market Dynamics and Key Growth Drivers" section. These include strong economic growth in emerging markets, increasing internet and smartphone penetration, significant government initiatives promoting digital payments and cashless economies, the rising penetration of e-commerce, and the increasing availability of mobile devices. Essentially, a combination of technological readiness, supportive policies, and shifting consumer behavior towards digital convenience is fueling this expansion.
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <button onclick="scrollToSection('market-size-growth-section')" class="px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition duration-200">View Market Growth Graph</button>
+                                <button onclick="scrollToSection('regional-market-dynamics-section')" class="px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition duration-200">View Regional Dynamics Section</button>
+                            </div>
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2 text-blue-700">Management: We see a wide range in Total Payment Volume (TPV) among players like Alipay and PayPal. What explains these vast differences in scale?</h3>
+                        <p class="leading-relaxed pl-4 border-l-4 border-blue-300">
+                            <strong>Market Researcher:</strong> The differences in TPV are primarily due to their business models and regional focus. As illustrated in the "Major Player Total Payment Volume (TPV) Comparison" chart, companies like Alipay and WeChat Pay operate on a "super app" model, particularly dominant in Asia. These apps integrate payments deeply within a vast ecosystem of daily services—messaging, e-commerce, wealth management, utility payments—making them central to users' digital lives. This high frequency and breadth of use drive immense transaction volumes, as further explained in the "Infographic: The 'Super App' Model." In contrast, players like PayPal, while global, traditionally focus more on payment processing for e-commerce and businesses, which, while substantial, doesn't encompass the same breadth of daily consumer transactions as a super app.
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <button onclick="scrollToSection('player-tpv-comparison-section')" class="px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition duration-200">View TPV Comparison Graph</button>
+                                <button onclick="scrollToSection('super-app-infographic')" class="px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition duration-200">View Super App Infographic</button>
+                            </div>
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2 text-blue-700">Management: Looking at the Capability Comparison chart, what common strategic themes emerge among the successful players?</h3>
+                        <p class="leading-relaxed pl-4 border-l-4 border-blue-300">
+                            <strong>Market Researcher:</strong> Several themes stand out, clearly visible in the "Major Player Capability Comparison" chart and reinforced by the "Key Strategic Insights from Major Players" infographics. Firstly, **Ecosystem Integration** is paramount, whether through "super app" models (Alipay, WeChat Pay) or deep integration with merchant software (Stripe, Worldpay). Secondly, **AI/Tech Innovation** is a consistent focus, used for fraud detection, payment optimization, and personalized user experiences across almost all players. Thirdly, there's a clear trend towards offering **Value-Added Services** beyond basic payments, such as BNPL, credit, or analytics, to diversify revenue and enhance customer stickiness. Finally, **Global Reach** and **Adaptability to Local Markets** are crucial; successful players tailor their strategies to regional nuances in regulation, consumer behavior, and existing infrastructure.
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <button onclick="scrollToSection('player-capabilities-section')" class="px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition duration-200">View Capabilities Graph</button>
+                                <button onclick="scrollToSection('key-strategic-insights-section')" class="px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition duration-200">View Strategic Insights Infographics</button>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Register Chart.js Datalabels plugin globally
+        Chart.register(ChartDataLabels);
+
+        // Function to scroll to a section
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Chart Colors - using Tailwind's default color palette for consistency
+        const chartColors = {
+            blue: 'rgb(66, 153, 225)',    // blue-500
+            teal: 'rgb(56, 178, 172)',    // teal-500
+            orange: 'rgb(246, 173, 85)',  // orange-400
+            pink: 'rgb(237, 100, 166)',   // pink-500
+            purple: 'rgb(159, 122, 234)', // purple-400
+            green: 'rgb(72, 187, 120)',   // green-500
+            yellow: 'rgb(236, 201, 75)',  // yellow-400
+            red: 'rgb(252, 129, 129)',    // red-400
+            gray: 'rgb(160, 174, 192)',   // gray-500
+            indigo: 'rgb(99, 102, 241)',  // indigo-500
+            cyan: 'rgb(6, 182, 212)'      // cyan-500
+        };
+
+        // 1. Global Digital Payment Market Revenue Forecast (Line Chart)
+        function createMarketRevenueForecastChart() {
+            const ctx = document.getElementById('marketRevenueForecastChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['2024', '2025', '2029', '2034'],
+                    datasets: [{
+                        label: 'Market Revenue (USD Billion) - Provider Revenue', // Clarified label
+                        data: [130, 155, 199, 701], // Mid-range values from the table
+                        borderColor: chartColors.blue,
+                        backgroundColor: 'rgba(66, 153, 225, 0.2)',
+                        fill: true,
+                        tension: 0.3,
+                        pointBackgroundColor: chartColors.blue,
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: chartColors.blue,
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Global Digital Payment Market Revenue Forecast (2024-2034)',
+                            font: { size: 16, weight: 'bold' },
+                            color: '#2d3748'
+                        },
+                        legend: {
+                            display: true,
+                            position: 'bottom',
+                            labels: {
+                                color: '#4a5568'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: $${context.parsed.y} Billion`;
+                                }
+                            }
+                        },
+                        datalabels: {
+                            align: 'end',
+                            anchor: 'end',
+                            color: '#4a5568',
+                            font: {
+                                weight: 'bold'
+                            },
+                            formatter: (value) => `$${value}B`
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Year',
+                                color: '#4a5568'
+                            },
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                color: '#4a5568'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Revenue (USD Billion)',
+                                color: '#4a5568'
+                            },
+                            beginAtZero: true,
+                            grid: {
+                                color: '#e2e8f0'
+                            },
+                            ticks: {
+                                color: '#4a5568',
+                                callback: function(value) {
+                                    return `$${value}B`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // 2. Digital Payment Market Share by Payment Mode (Waffle Chart)
+        function createPaymentModeWaffleChart() {
+            const canvas = document.getElementById('paymentModeWaffleChart');
+            const ctx = canvas.getContext('2d');
+
+            // Data for the waffle chart (must sum to 100%)
+            const data = [
+                { label: 'Digital Wallets', value: 40, color: chartColors.teal },
+                { label: 'Cards (POS/Online)', value: 35, color: chartColors.blue },
+                { label: 'Bank Transfers (A2A)', value: 15, color: chartColors.orange },
+                { label: 'Other (BNPL, QR, etc.)', value: 10, color: chartColors.gray }
+            ];
+
+            const totalSquares = 100;
+            const rows = 10;
+            const cols = 10;
+            const squareSize = 20; // Size of each square
+            const padding = 2; // Padding between squares
+            const chartWidth = cols * (squareSize + padding);
+            const chartHeight = rows * (squareSize + padding);
+
+            // Set canvas dimensions dynamically, ensuring it's large enough for the chart and legend
+            canvas.width = canvas.parentElement.clientWidth;
+            // Calculate height needed for title + legend + waffle chart + some bottom padding
+            const titleHeight = 35; // Approx height for title
+            const legendItemHeight = 20; // Height per legend item
+            const legendTotalHeight = legendItemHeight + 10; // For a single row legend
+            const requiredHeight = titleHeight + legendTotalHeight + chartHeight + 30; // 30 for bottom padding
+            canvas.height = Math.max(requiredHeight, canvas.parentElement.clientHeight);
+
+
+            // Chart Title
+            ctx.font = '16px Inter';
+            ctx.fontWeight = 'bold';
+            ctx.fillStyle = '#2d3748';
+            ctx.textAlign = 'center';
+            ctx.fillText('Overall Digital Payment Market Share by Primary Mode (2024)', canvas.width / 2, 25);
+
+            // Legend
+            let totalLegendWidth = 0;
+            ctx.font = '12px Inter'; // Set font for measurement
+            data.forEach(item => {
+                totalLegendWidth += ctx.measureText(`${item.label}: ${item.value}%`).width + 15 + 10 + 25; // text width + text-box padding + square size + spacing between items
+            });
+
+            // Recalculate legendStartX to ensure it's truly centered and visible
+            // Increased offset to push it further right
+            const actualLegendStartX = (canvas.width - (totalLegendWidth - 25)) / 2 + 50; // Increased offset to 50px
+            let currentLegendX = actualLegendStartX;
+            let legendY = 50; // Position legend below the title
+
+            data.forEach(item => {
+                ctx.fillStyle = item.color;
+                ctx.fillRect(currentLegendX, legendY, 10, 10); // Color square
+                ctx.fillStyle = '#4a5568'; // Reset text color
+                ctx.fillText(`${item.label}: ${item.value}%`, currentLegendX + 15, legendY + 12); // Adjusted Y for text alignment
+                currentLegendX += ctx.measureText(`${item.label}: ${item.value}%`).width + 15 + 25; // Move to next item
+            });
+
+            // Waffle Chart drawing starts below the legend
+            const waffleChartStartY = legendY + legendItemHeight + 20; // Start waffle chart below the legend
+            const startX = (canvas.width - chartWidth) / 2; // Center the waffle chart
+            let currentSquare = 0;
+            let xOffset, yOffset;
+
+            data.forEach(item => {
+                const numSquares = Math.round(item.value); // Use rounded value for squares
+                ctx.fillStyle = item.color;
+
+                for (let i = 0; i < numSquares; i++) {
+                    xOffset = startX + (currentSquare % cols) * (squareSize + padding);
+                    yOffset = waffleChartStartY + Math.floor(currentSquare / cols) * (squareSize + padding);
+                    ctx.fillRect(xOffset, yOffset, squareSize, squareSize);
+                    currentSquare++;
+                }
+            });
+        }
+
+
+        // 3. Digital Payment Market Share by End-User Vertical (Bar Chart)
+        function createEndUserVerticalBarChart() {
+            const ctx = document.getElementById('endUserVerticalBarChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Retail & E-commerce', 'BFSI', 'Healthcare', 'IT & ITES', 'Telecom', 'Other'],
+                    datasets: [{
+                        label: 'Market Share (%)',
+                        data: [35.05, 24, 10, 8, 7, 15.95], // Illustrative data summing to 100%
+                        backgroundColor: [
+                            chartColors.blue,
+                            chartColors.teal,
+                            chartColors.orange,
+                            chartColors.pink,
+                            chartColors.purple,
+                            chartColors.green
+                        ],
+                        borderColor: '#fff',
+                        borderWidth: 1,
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Digital Payment Market Share by End-User Vertical (2024)',
+                            font: { size: 16, weight: 'bold' },
+                            color: '#2d3748'
+                        },
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.parsed.y}%`;
+                                }
+                            }
+                        },
+                        datalabels: {
+                            align: 'end',
+                            anchor: 'end',
+                            color: '#4a5568',
+                            font: {
+                                weight: 'bold'
+                            },
+                            formatter: (value) => `${value}%`
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'End-User Vertical',
+                                color: '#4a5568'
+                            },
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                color: '#4a5568'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Market Share (%)',
+                                color: '#4a5568'
+                            },
+                            beginAtZero: true,
+                            max: 40,
+                            grid: {
+                                color: '#e2e8f0'
+                            },
+                            ticks: {
+                                color: '#4a5568',
+                                callback: function(value) {
+                                    return `${value}%`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // 4. Digital Payment Market Share by Region (Bar Chart) - Renamed from original
+        function createRegionalMarketShareChart() {
+            const ctx = document.getElementById('regionalMarketShareChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Asia-Pacific', 'North America', 'Europe', 'Latin America', 'Middle East & Africa'],
+                    datasets: [{
+                        label: 'Market Share (%)',
+                        data: [43.52, 34.75, 15, 4, 2.73], // Illustrative data summing to 100%
+                        backgroundColor: [
+                            chartColors.blue,
+                            chartColors.teal,
+                            chartColors.orange,
+                            chartColors.purple,
+                            chartColors.green
+                        ],
+                        borderColor: '#fff',
+                        borderWidth: 1,
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Digital Payment Market Share by Region (2024)',
+                            font: { size: 16, weight: 'bold' },
+                            color: '#2d3748'
+                        },
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.parsed.y}%`;
+                                }
+                            }
+                        },
+                        datalabels: {
+                            align: 'end',
+                            anchor: 'end',
+                            color: '#4a5568',
+                            font: {
+                                weight: 'bold'
+                            },
+                            formatter: (value) => `${value}%`
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Region',
+                                color: '#4a5568'
+                            },
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                color: '#4a5568'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Market Share (%)',
+                                color: '#4a5568'
+                            },
+                            beginAtZero: true,
+                            max: 50,
+                            grid: {
+                                color: '#e2e8f0'
+                            },
+                            ticks: {
+                                color: '#4a5568',
+                                callback: function(value) {
+                                    return `${value}%`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // 5. Major Player Total Payment Volume (TPV) Comparison (Bar Chart)
+        function createPlayerTPVComparisonChart() {
+            const ctx = document.getElementById('playerTPVComparisonChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        'PayPal (2023)',
+                        'Stripe (2024)',
+                        'Adyen (2024)',
+                        'PayU (Est.)',
+                        'Alipay (Est. 2025)',
+                        'WeChat Pay (Est. 2025)',
+                        'Worldpay (2026 Proj.)',
+                        'Worldline (Est.)'
+                    ],
+                    datasets: [{
+                        label: 'Total Payment Volume (Trillion USD)',
+                        data: [
+                            1.53, // PayPal
+                            1.4,  // Stripe
+                            1.39, // Adyen (converted from EUR)
+                            0.5,  // PayU (Illustrative)
+                            24,   // Alipay (Est. based on China market)
+                            18,   // WeChat Pay (Est. illustrative)
+                            3.7,  // Worldpay
+                            1.0   // Worldline (Est. illustrative)
+                        ],
+                        backgroundColor: [
+                            chartColors.blue,
+                            chartColors.teal,
+                            chartColors.orange,
+                            chartColors.pink,
+                            chartColors.purple,
+                            chartColors.green,
+                            chartColors.yellow,
+                            chartColors.red
+                        ],
+                        borderColor: '#fff',
+                        borderWidth: 1,
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Major Player Total Payment Volume (TPV) Comparison',
+                            font: { size: 16, weight: 'bold' },
+                            color: '#2d3748'
+                        },
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.label}: $${context.parsed.y} Trillion`;
+                                }
+                            }
+                        },
+                        datalabels: {
+                            align: 'end',
+                            anchor: 'end',
+                            color: '#4a5568',
+                            font: {
+                                weight: 'bold'
+                            },
+                            formatter: (value) => `$${value}T`
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Company (Year/Estimate)',
+                                color: '#4a5568'
+                            },
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                color: '#4a5568'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'TPV (Trillion USD)',
+                                color: '#4a5568'
+                            },
+                            beginAtZero: true,
+                            max: 25, // Adjusted max to accommodate Alipay
+                            grid: {
+                                color: '#e2e8f0'
+                            },
+                            ticks: {
+                                color: '#4a5568',
+                                callback: function(value) {
+                                    return `$${value}T`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // 6. Major Player Revenue Comparison (Bar Chart)
+        function createPlayerRevenueComparisonChart() {
+            const ctx = document.getElementById('playerRevenueComparisonChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        'PayPal (2023)',
+                        'Stripe (Est. 2024)',
+                        'Adyen (2024)',
+                        'PayU (FY2024)',
+                        'Alipay (Est.)', // Added Alipay
+                        'WeChat Pay (Est.)', // Added WeChat Pay
+                        'Worldpay (2024)',
+                        'Worldline (FY2024)'
+                    ],
+                    datasets: [{
+                        label: 'Revenue (Billion USD/€)',
+                        data: [
+                            29.8,      // PayPal
+                            4.0,       // Stripe
+                            1.9961,    // Adyen (in EUR, approx 2.15B USD)
+                            1.1,       // PayU
+                            30.0,      // Alipay (Estimated)
+                            25.0,      // WeChat Pay (Estimated)
+                            4.732,     // Worldpay
+                            4.6319     // Worldline (in EUR, approx 5.0B USD)
+                        ],
+                        backgroundColor: [
+                            chartColors.blue,
+                            chartColors.teal,
+                            chartColors.orange,
+                            chartColors.pink,
+                            chartColors.cyan, // New color for Alipay
+                            chartColors.indigo, // New color for WeChat Pay
+                            chartColors.purple,
+                            chartColors.green
+                        ],
+                        borderColor: '#fff',
+                        borderWidth: 1,
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Major Player Revenue Comparison (Latest Available Year)',
+                            font: { size: 16, weight: 'bold' },
+                            color: '#2d3748'
+                        },
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label;
+                                    const value = context.parsed.y;
+                                    if (label.includes('Adyen') || label.includes('Worldline')) {
+                                        return `${label}: €${value} Billion`;
+                                    }
+                                    return `${label}: $${value} Billion`;
+                                }
+                            }
+                        },
+                        datalabels: {
+                            align: 'end',
+                            anchor: 'end',
+                            color: '#4a5568',
+                            font: {
+                                weight: 'bold'
+                            },
+                            formatter: (value, context) => {
+                                const label = context.chart.data.labels[context.dataIndex];
+                                if (label.includes('Adyen') || label.includes('Worldline')) {
+                                    return `€${value}B`;
+                                }
+                                return `$${value}B`;
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Company (Year)',
+                                color: '#4a5568'
+                            },
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                color: '#4a5568'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Revenue (Billion USD/€)',
+                                color: '#4a5568'
+                            },
+                            beginAtZero: true,
+                            max: 35, // Adjusted max to accommodate Alipay/WeChat Pay estimates
+                            grid: {
+                                color: '#e2e8f0'
+                            },
+                            ticks: {
+                                color: '#4a5568',
+                                callback: function(value) {
+                                    return `$${value}B`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // 7. Major Player Capabilities Radar Chart
+        function createPlayerCapabilitiesRadarChart() {
+            const ctx = document.getElementById('playerCapabilitiesRadarChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: [
+                        'Global Reach', 'E-commerce Focus', 'POS Focus',
+                        'Value-Added Services', 'AI/Tech Innovation',
+                        'Developer Friendliness', 'Ecosystem Integration'
+                    ],
+                    datasets: [
+                        {
+                            label: 'PayPal',
+                            data: [9, 8, 6, 9, 7, 7, 8],
+                            backgroundColor: 'rgba(66, 153, 225, 0.4)', // blue-500 with transparency
+                            borderColor: chartColors.blue,
+                            pointBackgroundColor: chartColors.blue,
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: chartColors.blue,
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'Stripe',
+                            data: [8, 9, 7, 8, 9, 10, 7],
+                            backgroundColor: 'rgba(56, 178, 172, 0.4)', // teal-500 with transparency
+                            borderColor: chartColors.teal,
+                            pointBackgroundColor: chartColors.teal,
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: chartColors.teal,
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'Adyen',
+                            data: [7, 8, 9, 7, 9, 8, 6],
+                            backgroundColor: 'rgba(246, 173, 85, 0.4)', // orange-400 with transparency
+                            borderColor: chartColors.orange,
+                            pointBackgroundColor: chartColors.orange,
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: chartColors.orange,
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'PayU',
+                            data: [6, 7, 5, 8, 7, 6, 7],
+                            backgroundColor: 'rgba(237, 100, 166, 0.4)', // pink-500 with transparency
+                            borderColor: chartColors.pink,
+                            pointBackgroundColor: chartColors.pink,
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: chartColors.pink,
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'Alipay',
+                            data: [8, 9, 9, 10, 8, 7, 10], // Estimated scores for Alipay
+                            backgroundColor: 'rgba(6, 182, 212, 0.4)', // cyan-500 with transparency
+                            borderColor: chartColors.cyan,
+                            pointBackgroundColor: chartColors.cyan,
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: chartColors.cyan,
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'WeChat Pay',
+                            data: [7, 8, 8, 9, 8, 7, 10], // Estimated scores for WeChat Pay
+                            backgroundColor: 'rgba(99, 102, 241, 0.4)', // indigo-500 with transparency
+                            borderColor: chartColors.indigo,
+                            pointBackgroundColor: chartColors.indigo,
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: chartColors.indigo,
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'Worldpay',
+                            data: [9, 8, 9, 6, 7, 6, 6],
+                            backgroundColor: 'rgba(159, 122, 234, 0.4)', // purple-400 with transparency
+                            borderColor: chartColors.purple,
+                            pointBackgroundColor: chartColors.purple,
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: chartColors.purple,
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'Worldline',
+                            data: [8, 7, 8, 7, 7, 6, 6],
+                            backgroundColor: 'rgba(72, 187, 120, 0.4)', // green-500 with transparency
+                            borderColor: chartColors.green,
+                            pointBackgroundColor: chartColors.green,
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: chartColors.green,
+                            borderWidth: 2
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Major Player Capability Comparison (Illustrative Scores 1-10)',
+                            font: { size: 16, weight: 'bold' },
+                            color: '#2d3748'
+                        },
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#4a5568'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.label} - ${context.parsed.r}`;
+                                }
+                            }
+                        },
+                        datalabels: {
+                            display: false // Hide datalabels for cleaner radar chart
+                        }
+                    },
+                    scales: {
+                        r: {
+                            angleLines: {
+                                color: '#e2e8f0'
+                            },
+                            grid: {
+                                color: '#e2e8f0'
+                            },
+                            pointLabels: {
+                                font: {
+                                    size: 12,
+                                    weight: 'bold'
+                                },
+                                color: '#4a5568'
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 10,
+                            ticks: {
+                                display: false // Hide numerical ticks on the axis
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+
+        // Run all chart creation functions on window load
+        window.onload = function() {
+            createMarketRevenueForecastChart();
+            createPaymentModeWaffleChart(); // New Waffle Chart
+            createEndUserVerticalBarChart(); // New Bar Chart
+            createRegionalMarketShareChart();
+            createPlayerTPVComparisonChart();
+            createPlayerRevenueComparisonChart();
+            createPlayerCapabilitiesRadarChart(); // New Radar Chart
+            // Removed individual player metrics chart calls as per request
+            // createPaypalMetricsChart();
+            // createStripeMetricsChart();
+            // createAdyenMetricsChart();
+            // createPayuMetricsChart();
+            // createWorldpayMetricsChart();
+            // createWorldlineMetricsChart();
+        };
+    </script>
+</body>
+</html>
