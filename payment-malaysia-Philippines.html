@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Market Trends: Malaysia & Philippines Analysis</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN for interactive charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <!-- Chart.js Datalabels Plugin for displaying values on charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0/dist/chartjs-plugin-datalabels.min.js"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #e2e8f0; /* Light gray background */
+            color: #2d3748; /* Darker text color */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 1rem; /* Rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        h1, h2, h3 {
+            color: #2c5282; /* Primary blue for headings */
+            font-weight: 700;
+        }
+        .section-title {
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        canvas {
+            max-height: 400px; /* Limit chart height */
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="container">
+        <header class="text-center py-8">
+            <h1 class="text-4xl mb-2">Payment Market Trends Analysis</h1>
+            <h2 class="text-2xl text-gray-600">Malaysia & Philippines: A Data-Driven Dashboard</h2>
+            <p class="mt-4 text-lg text-gray-700">This report provides a concise overview of the evolving digital payment landscapes in Malaysia and the Philippines, leveraging synthetic data derived from market research to highlight key trends, growth drivers, and strategic implications.</p>
+        </header>
+
+        <!-- Executive Summary -->
+        <section class="card">
+            <h2 class="text-2xl section-title mb-4">Executive Summary</h2>
+            <p class="text-gray-700 leading-relaxed">
+                The payment markets in Malaysia and the Philippines are experiencing significant digital transformation, driven by strong government initiatives, technological advancements, and changing consumer preferences. Both nations are rapidly moving towards cashless societies, showing robust growth in digital transaction volumes and values. This report synthesizes key data to illustrate these trends, offering insights for businesses, investors, and policymakers.
+            </p>
+        </section>
+
+        <!-- Malaysia Market Trends -->
+        <section class="card">
+            <h2 class="text-2xl section-title mb-4">Malaysia Payment Market: Trends & Dynamics</h2>
+            <p class="text-gray-700 leading-relaxed mb-6">
+                Malaysia's digital payment journey is marked by strong adoption and a maturing ecosystem. The following charts illustrate the significant shifts in transaction volumes, payment method preferences, and the rise of new financial services like BNPL, painting a picture of a nation rapidly embracing a cashless future.
+            </p>
+
+            <!-- Chart 1: Malaysia E-Payment Transaction Volume & Value Growth (Vertical Bar Chart with Dual Axis) -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4">E-Payment Transaction Volume & Value Growth (2023-2024)</h3>
+                <canvas id="malaysiaOverallGrowthChart"></canvas>
+                <p class="text-sm text-gray-600 mt-2">Malaysia's e-payment transactions saw a significant increase in both volume and value, indicating strong market expansion and digital adoption.</p>
+            </div>
+
+            <!-- Infographic: Malaysia E-Payment Transactions Per Capita -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4">E-Payment Transactions Per Capita (2024)</h3>
+                <div class="flex items-center justify-center p-6 bg-blue-50 rounded-lg shadow-inner">
+                    <div class="text-center">
+                        <p class="text-5xl font-bold text-blue-700">409</p>
+                        <p class="text-lg text-blue-600 mt-2">Transactions Per Capita</p>
+                        <p class="text-md text-gray-600 mt-1">
+                            <i class="fas fa-arrow-up text-green-500 mr-1"></i>
+                            <span class="font-semibold text-green-700">19% Growth</span> from 2023
+                        </p>
+                        <p class="text-sm text-gray-500 mt-1">Targeting 470 by 2025</p>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-600 mt-2">Per capita e-payment transactions grew significantly, nearing the national target and reflecting deep integration into daily life.</p>
+            </div>
+
+            <!-- Chart 3: Malaysia E-wallet Usage vs. Cash in Physical Transactions (Vertical Bar Chart) -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4">E-wallet Usage vs. Cash in Physical Transactions (2023-2024)</h3>
+                <canvas id="malaysiaCashVsEwalletChart"></canvas>
+                <p class="text-sm text-gray-600 mt-2">Cash usage in physical transactions is declining as e-wallets become the preferred cashless method for in-person purchases.</p>
+            </div>
+
+            <!-- Chart: Malaysia E-wallet Market Share (Doughnut Chart) -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4">Malaysia E-wallet Market Share (2024)</h3>
+                <canvas id="malaysiaEwalletMarketShareChart"></canvas>
+                <p class="text-sm text-gray-600 mt-2">TNG eWallet maintains its dominant position, with other players actively competing for market share in the growing e-wallet segment.</p>
+            </div>
+
+            <!-- Chart: Malaysia DuitNow QR Transactions & Value Growth (Dual-Axis Line Chart) -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4">DuitNow QR Transactions & Value Growth (2023-2024)</h3>
+                <canvas id="malaysiaDuitNowQRChart"></canvas>
+                <p class="text-sm text-gray-600 mt-2">DuitNow QR transactions and value more than doubled, showcasing its rapid adoption and expanded merchant network.</p>
+            </div>
+
+            <!-- Chart: Malaysia BNPL Market Value Projection (Vertical Bar Chart) -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4">BNPL Market Value Projection (2024-2029)</h3>
+                <canvas id="malaysiaBNPLProjectionChart"></canvas>
+                <p class="text-sm text-gray-600 mt-2">The Buy Now, Pay Later (BNPL) market in Malaysia is projected for substantial expansion, driven by younger demographics.</p>
+            </div>
+        </section>
+
+        <!-- Philippines Market Trends -->
+        <section class="card">
+            <h2 class="text-2xl section-title mb-4">Philippines Payment Market: Trends & Dynamics</h2>
+            <p class="text-gray-700 leading-relaxed mb-6">
+                The Philippines is experiencing a rapid digital payment transformation, driven by financial inclusion initiatives and a tech-savvy population. These visualizations highlight the accelerated shift towards digital transactions, the key use cases, and the burgeoning BNPL market.
+            </p>
+
+            <!-- Chart: Philippines Digital Payment Share (Volume & Value) (Horizontal Bar Chart) -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4">Digital Payment Share (Volume & Value, 2023-2024 & 2028 Target)</h3>
+                <canvas id="philippinesDigitalShareChart"></canvas>
+                <p class="text-sm text-gray-600 mt-2">The Philippines significantly surpassed its digital payment targets, demonstrating accelerated momentum towards a cash-lite economy.</p>
+            </div>
+
+            <!-- Chart: Philippines Digital Transaction Volume by Use Case (Exploded Pie Chart) -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4">Philippines Digital Transaction Volume by Use Case (2024)</h3>
+                <canvas id="philippinesUseCasesChart"></canvas>
+                <p class="text-sm text-gray-600 mt-2">Merchant payments, P2P transfers, and B2B payments collectively account for the vast majority of digital transactions.</p>
+            </div>
+
+            <!-- Chart: Philippines Top E-wallet Players Market Share (Doughnut Chart) -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4">Philippines Top E-wallet Players Market Share (2024)</h3>
+                <canvas id="philippinesEwalletMarketShareChart"></canvas>
+                <p class="text-sm text-gray-600 mt-2">GCash and PayMaya continue to lead the e-wallet market, driving significant digital adoption across the archipelago.</p>
+            </div>
+
+            <!-- Chart: Philippines InstaPay & PESONet Transaction Volume Growth (Dual-Axis Line Chart) -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4">InstaPay & PESONet Transaction Volume Growth (H1 2023 vs. H1 2024)</h3>
+                <canvas id="philippinesInstaPayPESONetChart"></canvas>
+                <p class="text-sm text-gray-600 mt-2">Real-time payment systems InstaPay and PESONet show robust growth, with InstaPay leading in volume for low-value transfers.</p>
+            </div>
+
+            <!-- Chart: Philippines BNPL Unique Users (Horizontal Bar Chart) -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4">BNPL Unique Users (2023-2024 & 2025 Projection)</h3>
+                <canvas id="philippinesBNPLUsersChart"></canvas>
+                <p class="text-sm text-gray-600 mt-2">The BNPL market in the Philippines is expanding rapidly, with a significant increase in unique users and strong future projections.</p>
+            </div>
+
+            <!-- Chart: Philippines Prepaid Card & Digital Wallet Market Value Projection (Horizontal Bar Chart) -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4">Prepaid Card & Digital Wallet Market Value Projection (2025-2029)</h3>
+                <canvas id="philippinesPrepaidDigitalWalletChart"></canvas>
+                <p class="text-sm text-gray-600 mt-2">The prepaid card and digital wallet market is forecasted to grow substantially, driven by financial inclusion efforts.</p>
+            </div>
+        </section>
+
+        <!-- Comparative Analysis -->
+        <section class="card">
+            <h2 class="text-2xl section-title mb-4">Comparative Analysis: Malaysia vs. Philippines</h2>
+            <p class="text-gray-700 leading-relaxed mb-6">
+                While both nations are on a clear digital trajectory, their unique market characteristics present distinct opportunities and challenges. This section provides a direct comparison of their digital payment adoption, growth drivers, and regulatory landscapes.
+            </p>
+
+            <!-- Infographic: Digital Payment Adoption: Growth & Key Indicators (2023-2024) -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4">Digital Payment Adoption: Growth & Key Indicators (2023-2024)</h3>
+                <div class="flex flex-wrap justify-around items-center p-6 bg-indigo-50 rounded-lg shadow-inner">
+                    <div class="text-center m-4 p-4 bg-white rounded-lg shadow-md">
+                        <p class="text-2xl font-bold text-indigo-700">Malaysia</p>
+                        <p class="text-4xl font-bold text-green-700 mt-2">
+                            <i class="fas fa-arrow-up text-green-500 mr-1"></i>19.2%
+                        </p>
+                        <p class="text-lg text-indigo-500">Growth in Transactions Per Capita</p>
+                        <p class="text-md text-gray-600 mt-1">(409 transactions in 2024)</p>
+                    </div>
+                    <div class="text-center m-4 p-4 bg-white rounded-lg shadow-md">
+                        <p class="text-2xl font-bold text-teal-700">Philippines</p>
+                        <p class="text-4xl font-bold text-green-700 mt-2">
+                            <i class="fas fa-arrow-up text-green-500 mr-1"></i>8.7%
+                        </p>
+                        <p class="text-lg text-teal-500">Growth in Digital Payment Volume Share</p>
+                        <p class="text-md text-gray-600 mt-1">(57.4% share in 2024)</p>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-600 mt-2">This infographic highlights the percentage growth in key digital payment adoption metrics for both nations, showcasing their rapid digital transformation.</p>
+            </div>
+
+            <!-- Infographic: BNPL Market Growth Rates (Malaysia vs. Philippines, CAGR) -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4">BNPL Market Growth Rates (Malaysia vs. Philippines, CAGR)</h3>
+                <div class="flex flex-wrap justify-around items-center p-6 bg-purple-50 rounded-lg shadow-inner">
+                    <div class="text-center m-4">
+                        <p class="text-4xl font-bold text-purple-700">11.4%</p>
+                        <p class="text-lg text-purple-600 mt-2">Malaysia BNPL CAGR</p>
+                        <p class="text-sm text-gray-600">(2024-2029)</p>
+                    </div>
+                    <div class="text-center m-4">
+                        <p class="text-4xl font-bold text-orange-700">11.2%</p>
+                        <p class="text-lg text-orange-600 mt-2">Philippines BNPL CAGR</p>
+                        <p class="text-sm text-gray-600">(2021-2030)</p>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-600 mt-2">Both markets project substantial future growth in BNPL, indicating a shared trend towards flexible credit solutions.</p>
+            </div>
+
+            <!-- Chart: Regulatory Focus Areas (Malaysia vs. Philippines) (Radar Chart) -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4">Regulatory Focus Areas (Malaysia vs. Philippines)</h3>
+                <canvas id="comparativeRegulatoryRadarChart"></canvas>
+                <p class="text-sm text-gray-600 mt-2">Both central banks are proactive, with tailored focuses on fraud prevention, financial inclusion, and cross-border payments.</p>
+            </div>
+
+            <!-- Chart: Digital Payment Ecosystem Strength (Comparative Radar Chart) -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4">Digital Payment Ecosystem Strength (Malaysia vs. Philippines, 2024)</h3>
+                <canvas id="comparativeEcosystemStrengthChart"></canvas>
+                <p class="text-sm text-gray-600 mt-2">A comparative view of the overall strength of digital payment ecosystems, highlighting areas of relative advantage for each nation.</p>
+            </div>
+        </section>
+
+        <!-- Conclusion & Future Outlook -->
+        <section class="card">
+            <h2 class="text-2xl section-title mb-4">Conclusion & Future Outlook</h2>
+            <p class="text-gray-700 leading-relaxed">
+                The digital payment markets in Malaysia and the Philippines are undergoing a profound transformation, characterized by rapid adoption, strong regulatory support, and diverse innovation. While Malaysia exhibits a more mature ecosystem with high per capita digital transactions, the Philippines is rapidly closing the gap, leveraging digital payments for significant financial inclusion. Both nations are poised for continued growth, driven by mobile-first strategies, interoperability, and the expansion of solutions like BNPL. Future success will depend on sustained efforts in cybersecurity, financial literacy, and cross-border integration, solidifying their positions as leaders in Southeast Asia's digital payment revolution.
+            </p>
+        </section>
+    </div>
+
+    <script>
+        // Register Chart.js Datalabels Plugin globally
+        Chart.register(ChartDataLabels);
+
+        // Define a consistent color palette
+        const chartColors = {
+            primary: '#2c5282', // Dark Blue
+            secondary: '#4299e1', // Light Blue
+            accent: '#f6ad55', // Orange
+            success: '#48bb78', // Green
+            danger: '#e53e3e', // Red
+            purple: '#805ad5', // Purple
+            gray: '#a0aec0', // Gray
+            lightGray: '#edf2f7', // Lighter Gray
+            darkGray: '#2d3748', // Dark Gray
+            teal: '#38b2ac', // Teal
+            indigo: '#667eea' // Indigo
+        };
+
+        // --- Synthetic Data for Charts ---
+        const syntheticData = {
+            malaysia: {
+                overallGrowth: {
+                    labels: ['2023', '2024'],
+                    volume: [11.5, 14.7], // Billion transactions
+                    value: [125.96, 148.53] // USD Billion (converted from RM)
+                },
+                perCapita: {
+                    labels: ['2023', '2024', '2025 Target'],
+                    transactions: [343, 409, 470] // Synthetic target based on >15% CAGR
+                },
+                cashVsEwallet: {
+                    labels: ['2023', '2024'],
+                    cash: [45, 36], // % of physical transactions
+                    ewalletAsPrimary: [10, 23] // % as primary cashless method
+                },
+                ewalletMarketShare: {
+                    labels: ['TNG eWallet', 'MAE', 'GrabPay', 'Boost', 'ShopeePay', 'BigPay', 'Others'],
+                    data: [45, 20, 15, 10, 7, 3, 0]
+                },
+                paymentInstrumentMix: { // Data removed from chart, but kept for reference if needed
+                    labels: ['E-wallets', 'Debit Cards', 'Credit Cards', 'Online Banking (non-e-wallet)', 'Cash'],
+                    data: [35, 25, 15, 10, 15]
+                },
+                duitNowQR: {
+                    labels: ['2023', '2024'],
+                    transactions: [360, 870], // Million transactions
+                    value: [3.11, 6.62] // USD Billion (converted from RM)
+                },
+                bnplProjection: {
+                    labels: ['2024', '2025', '2026', '2027', '2028', '2029'],
+                    value: [2.78, 3.09, 3.44, 3.82, 4.25, 4.76] // Billion USD (CAGR of 11.4%)
+                }
+            },
+            philippines: {
+                digitalShare: {
+                    labels: ['2023', '2024', '2028 Target'],
+                    volume: [52.8, 57.4, 65], // % of retail payment volume
+                    value: [55.3, 59.0, 68] // % of retail payment value
+                },
+                useCases: {
+                    labels: ['Merchant Payments', 'P2P Transfers', 'B2B Payments', 'Other'],
+                    data: [66.4, 20.6, 6.2, 6.8]
+                },
+                ewalletMarketShare: {
+                    labels: ['GCash', 'PayMaya', 'PayPal', 'Other Bank Apps', 'Others'],
+                    data: [60, 25, 8, 7, 0]
+                },
+                instapayPESONet: {
+                    labels: ['H1 2023', 'H1 2024'],
+                    instapayVolume: [600, 1520], // Million transactions
+                    pesonetVolume: [50, 56.28] // Million transactions
+                },
+                bnplUsers: {
+                    labels: ['2023', '2024', '2025 Projection'],
+                    users: [20.3, 28.4, 36.4] // Million unique users
+                },
+                prepaidDigitalWalletProjection: {
+                    labels: ['2025', '2026', '2027', '2028', '2029'],
+                    value: [4.42, 4.81, 5.23, 5.69, 6.20] // Billion USD
+                },
+                paymentMethodBreakdown: { // Data removed from chart, but kept for reference if needed
+                    labels: ['E-Wallet', 'Card', 'Bank Transfer', 'Cash', 'Other'],
+                    data: [33, 30, 16, 15, 6]
+                }
+            },
+            comparative: {
+                adoptionTrajectories: {
+                    labels: ['2023', '2024'],
+                    malaysiaPerCapita: [343, 409],
+                    philippinesDigitalVolumeShare: [52.8, 57.4]
+                },
+                bnplCAGR: {
+                    labels: ['Malaysia', 'Philippines'],
+                    cagr: [11.4, 11.2]
+                },
+                regulatoryFocus: {
+                    labels: ['Fraud Prevention', 'Financial Inclusion', 'Infrastructure Modernization', 'Cross-Border Payments', 'Digital Assets/CBDC', 'Interoperability'],
+                    malaysia: [9, 8, 9, 9, 7, 8],
+                    philippines: [7, 9, 7, 9, 8, 9]
+                },
+                ecosystemStrength: {
+                    labels: ['Digital Adoption Rate', 'Regulatory Support', 'Infrastructure Maturity', 'Fintech Innovation', 'Financial Inclusion Impact', 'Cross-Border Readiness'],
+                    malaysia: [8, 9, 9, 8, 7, 9],
+                    philippines: [7, 9, 7, 8, 9, 9]
+                }
+            }
+        };
+
+        // --- Chart Functions ---
+
+        // Malaysia Charts
+        function createMalaysiaOverallGrowthChart() {
+            const ctx = document.getElementById('malaysiaOverallGrowthChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: syntheticData.malaysia.overallGrowth.labels,
+                    datasets: [
+                        {
+                            label: 'E-payment Transactions (Billion)',
+                            data: syntheticData.malaysia.overallGrowth.volume,
+                            backgroundColor: chartColors.primary,
+                            borderRadius: 8,
+                            yAxisID: 'yVolume' // Assign to volume axis
+                        },
+                        {
+                            label: 'Retail E-payment Value (USD Billion)', // Updated label
+                            data: syntheticData.malaysia.overallGrowth.value,
+                            backgroundColor: chartColors.secondary,
+                            borderRadius: 8,
+                            yAxisID: 'yValue' // Assign to value axis
+                        }
+                    ]
+                },
+                options: {
+                    indexAxis: 'x', // Vertical bar chart
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.dataset.yAxisID === 'yVolume') {
+                                        label += context.raw + ' Billion';
+                                    } else {
+                                        label += '$' + context.raw + ' Billion'; // Updated currency
+                                    }
+                                    return label;
+                                }
+                            }
+                        },
+                        datalabels: {
+                            color: '#fff',
+                            font: { weight: 'bold' },
+                            formatter: (value, context) => {
+                                return context.dataset.yAxisID === 'yVolume' ? value + 'B' : '$' + value + 'B'; // Updated currency
+                            }
+                        }
+                    },
+                    scales: {
+                        x: { grid: { display: false } }, // X-axis for labels
+                        yVolume: {
+                            type: 'linear',
+                            position: 'left',
+                            beginAtZero: true,
+                            title: { display: true, text: 'Transactions (Billion)' }
+                        },
+                        yValue: {
+                            type: 'linear',
+                            position: 'right',
+                            beginAtZero: true,
+                            title: { display: true, text: 'Value (USD Billion)' }, // Updated currency
+                            grid: { drawOnChartArea: false } // Only draw grid lines for the left axis
+                        }
+                    }
+                }
+            });
+        }
+
+        function createMalaysiaCashVsEwalletChart() {
+            const ctx = document.getElementById('malaysiaCashVsEwalletChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: syntheticData.malaysia.cashVsEwallet.labels,
+                    datasets: [
+                        {
+                            label: 'Cash Usage in Physical Transactions (%)',
+                            data: syntheticData.malaysia.cashVsEwallet.cash,
+                            backgroundColor: chartColors.danger,
+                            borderRadius: 8,
+                        },
+                        {
+                            label: 'E-wallet as Primary Cashless Method (%)',
+                            data: syntheticData.malaysia.cashVsEwallet.ewalletAsPrimary,
+                            backgroundColor: chartColors.purple,
+                            borderRadius: 8,
+                        }
+                    ]
+                },
+                options: {
+                    indexAxis: 'x', // Vertical bar chart
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        tooltip: {
+                            callbacks: {
+                                label: (context) => `${context.dataset.label}: ${context.raw}%`
+                            }
+                        },
+                        datalabels: {
+                            color: '#fff',
+                            font: { weight: 'bold' },
+                            formatter: (value) => value + '%'
+                        }
+                    },
+                    scales: {
+                        x: { stacked: true, grid: { display: false } },
+                        y: { stacked: true, beginAtZero: true, max: 100, title: { display: true, text: 'Percentage (%)' } }
+                    }
+                }
+            });
+        }
+
+        function createMalaysiaEwalletMarketShareChart() {
+            const ctx = document.getElementById('malaysiaEwalletMarketShareChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: syntheticData.malaysia.ewalletMarketShare.labels,
+                    datasets: [{
+                        data: syntheticData.malaysia.ewalletMarketShare.data,
+                        backgroundColor: [
+                            chartColors.primary, chartColors.secondary, chartColors.accent,
+                            chartColors.success, chartColors.purple, chartColors.teal, chartColors.gray
+                        ],
+                        hoverOffset: 4,
+                        borderWidth: 2,
+                        borderColor: '#ffffff',
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        tooltip: {
+                            callbacks: {
+                                label: (context) => `${context.label}: ${context.raw}%`
+                            }
+                        },
+                        datalabels: {
+                            color: '#fff',
+                            font: { weight: 'bold' },
+                            formatter: (value) => value > 0 ? value + '%' : '',
+                            padding: 0
+                        }
+                    }
+                }
+            });
+        }
+
+        function createMalaysiaDuitNowQRChart() {
+            const ctx = document.getElementById('malaysiaDuitNowQRChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: syntheticData.malaysia.duitNowQR.labels,
+                    datasets: [
+                        {
+                            label: 'DuitNow QR Transactions (Million)',
+                            data: syntheticData.malaysia.duitNowQR.transactions,
+                            borderColor: chartColors.primary,
+                            backgroundColor: 'rgba(44, 82, 130, 0.2)',
+                            fill: true,
+                            tension: 0.3,
+                            pointBackgroundColor: chartColors.primary,
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: chartColors.primary,
+                            pointRadius: 5,
+                            pointHoverRadius: 7,
+                            yAxisID: 'y' // Primary Y-axis for transactions
+                        },
+                        {
+                            label: 'DuitNow QR Transaction Value (USD Billion)', // Updated label
+                            data: syntheticData.malaysia.duitNowQR.value,
+                            borderColor: chartColors.accent,
+                            backgroundColor: 'rgba(246, 173, 85, 0.2)',
+                            fill: true,
+                            tension: 0.3,
+                            pointBackgroundColor: chartColors.accent,
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: chartColors.accent,
+                            pointRadius: 5,
+                            pointHoverRadius: 7,
+                            yAxisID: 'y1' // Secondary Y-axis for value
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.dataset.yAxisID === 'y') { // Check which axis the dataset uses
+                                        label += context.raw + 'M';
+                                    } else {
+                                        label += '$' + context.raw + 'B'; // Updated currency
+                                    }
+                                    return label;
+                                }
+                            }
+                        },
+                        datalabels: { display: false }
+                    },
+                    scales: {
+                        x: { grid: { display: false } },
+                        y: {
+                            beginAtZero: true,
+                            position: 'left',
+                            title: { display: true, text: 'Transactions (Million)' }
+                        },
+                        y1: {
+                            beginAtZero: true,
+                            position: 'right',
+                            title: { display: true, text: 'Value (USD Billion)' }, // Updated currency
+                            grid: { drawOnChartArea: false }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createMalaysiaBNPLProjectionChart() {
+            const ctx = document.getElementById('malaysiaBNPLProjectionChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: syntheticData.malaysia.bnplProjection.labels,
+                    datasets: [{
+                        label: 'BNPL Market Value (Billion USD)',
+                        data: syntheticData.malaysia.bnplProjection.value,
+                        backgroundColor: chartColors.purple,
+                        borderRadius: 8,
+                    }]
+                },
+                options: {
+                    indexAxis: 'x', // Vertical bar chart
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: (context) => `Value: $${context.raw} Billion`
+                            }
+                        },
+                        datalabels: {
+                            color: '#fff',
+                            font: { weight: 'bold' },
+                            formatter: (value) => '$' + value + 'B'
+                        }
+                    },
+                    scales: {
+                        x: { grid: { display: false } },
+                        y: { beginAtZero: true, title: { display: true, text: 'Value (Billion USD)' } }
+                    }
+                }
+            });
+        }
+
+        // Philippines Charts
+        function createPhilippinesDigitalShareChart() {
+            const ctx = document.getElementById('philippinesDigitalShareChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: syntheticData.philippines.digitalShare.labels,
+                    datasets: [
+                        {
+                            label: 'Digital Payment Share (Volume %)',
+                            data: syntheticData.philippines.digitalShare.volume,
+                            backgroundColor: chartColors.primary,
+                            borderRadius: 8,
+                        },
+                        {
+                            label: 'Digital Payment Share (Value %)',
+                            data: syntheticData.philippines.digitalShare.value,
+                            backgroundColor: chartColors.secondary,
+                            borderRadius: 8,
+                        }
+                    ]
+                },
+                options: {
+                    indexAxis: 'y', // Horizontal bar chart
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        tooltip: {
+                            callbacks: {
+                                label: (context) => `${context.dataset.label}: ${context.raw}%`
+                            }
+                        },
+                        datalabels: {
+                            color: '#fff',
+                            font: { weight: 'bold' },
+                            formatter: (value) => value + '%'
+                        }
+                    },
+                    scales: {
+                        x: { beginAtZero: true, max: 100, title: { display: true, text: 'Share (%)' } },
+                        y: { grid: { display: false } }
+                    }
+                }
+            });
+        }
+
+        function createPhilippinesUseCasesChart() {
+            const ctx = document.getElementById('philippinesUseCasesChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: syntheticData.philippines.useCases.labels,
+                    datasets: [{
+                        data: syntheticData.philippines.useCases.data,
+                        backgroundColor: [chartColors.primary, chartColors.secondary, chartColors.accent, chartColors.gray],
+                        hoverOffset: 4,
+                        borderWidth: 2,
+                        borderColor: '#ffffff',
+                        // Add offset for the "exploded" slice effect
+                        offset: [15, 0, 0, 0] // Explode the first slice (Merchant Payments)
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        tooltip: {
+                            callbacks: {
+                                label: (context) => `${context.label}: ${context.raw}%`
+                            }
+                        },
+                        datalabels: {
+                            color: '#fff',
+                            font: { weight: 'bold' },
+                            formatter: (value) => value + '%'
+                        }
+                    }
+                }
+            });
+        }
+
+        function createPhilippinesEwalletMarketShareChart() {
+            const ctx = document.getElementById('philippinesEwalletMarketShareChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: syntheticData.philippines.ewalletMarketShare.labels,
+                    datasets: [{
+                        data: syntheticData.philippines.ewalletMarketShare.data,
+                        backgroundColor: [
+                            chartColors.indigo, chartColors.teal, chartColors.success,
+                            chartColors.purple, chartColors.gray
+                        ],
+                        hoverOffset: 4,
+                        borderWidth: 2,
+                        borderColor: '#ffffff',
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        tooltip: {
+                            callbacks: {
+                                label: (context) => `${context.label}: ${context.raw}%`
+                            }
+                        },
+                        datalabels: {
+                            color: '#fff',
+                            font: { weight: 'bold' },
+                            formatter: (value) => value > 0 ? value + '%' : '',
+                            padding: 0
+                        }
+                    }
+                }
+            });
+        }
+
+        function createPhilippinesInstaPayPESONetChart() {
+            const ctx = document.getElementById('philippinesInstaPayPESONetChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: syntheticData.philippines.instapayPESONet.labels,
+                    datasets: [
+                        {
+                            label: 'InstaPay Volume (Million)',
+                            data: syntheticData.philippines.instapayPESONet.instapayVolume,
+                            borderColor: chartColors.primary,
+                            backgroundColor: 'rgba(44, 82, 130, 0.2)',
+                            fill: true,
+                            tension: 0.3,
+                            pointBackgroundColor: chartColors.primary,
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: chartColors.primary,
+                            pointRadius: 5,
+                            pointHoverRadius: 7,
+                            yAxisID: 'y' // Primary Y-axis for InstaPay volume
+                        },
+                        {
+                            label: 'PESONet Volume (Million)',
+                            data: syntheticData.philippines.instapayPESONet.pesonetVolume,
+                            borderColor: chartColors.success,
+                            backgroundColor: 'rgba(76, 175, 80, 0.2)',
+                            fill: true,
+                            tension: 0.3,
+                            pointBackgroundColor: chartColors.success,
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: chartColors.success,
+                            pointRadius: 5,
+                            pointHoverRadius: 7,
+                            yAxisID: 'y1' // Secondary Y-axis for PESONet volume
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    label += context.raw + 'M';
+                                    return label;
+                                }
+                            }
+                        },
+                        datalabels: { display: false }
+                    },
+                    scales: {
+                        x: { grid: { display: false } },
+                        y: {
+                            beginAtZero: true,
+                            position: 'left',
+                            title: { display: true, text: 'InstaPay Volume (Million)' }
+                        },
+                        y1: {
+                            beginAtZero: true,
+                            position: 'right',
+                            title: { display: true, text: 'PESONet Volume (Million)' },
+                            grid: { drawOnChartArea: false }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createPhilippinesBNPLUsersChart() {
+            const ctx = document.getElementById('philippinesBNPLUsersChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: syntheticData.philippines.bnplUsers.labels,
+                    datasets: [{
+                        label: 'Unique BNPL Users (Million)',
+                        data: syntheticData.philippines.bnplUsers.users,
+                        backgroundColor: chartColors.purple,
+                        borderRadius: 8,
+                    }]
+                },
+                options: {
+                    indexAxis: 'y', // Horizontal bar chart
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: (context) => `${context.raw} Million Users`
+                            }
+                        },
+                        datalabels: {
+                            color: '#fff',
+                            font: { weight: 'bold' },
+                            formatter: (value) => value + 'M'
+                        }
+                    },
+                    scales: {
+                        x: { beginAtZero: true, title: { display: true, text: 'Users (Million)' } },
+                        y: { grid: { display: false } }
+                    }
+                }
+            });
+        }
+
+        function createPhilippinesPrepaidDigitalWalletChart() {
+            const ctx = document.getElementById('philippinesPrepaidDigitalWalletChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: syntheticData.philippines.prepaidDigitalWalletProjection.labels,
+                    datasets: [{
+                        label: 'Prepaid Card & Digital Wallet Market Value (Billion USD)',
+                        data: syntheticData.philippines.prepaidDigitalWalletProjection.value,
+                        backgroundColor: chartColors.accent,
+                        borderRadius: 8,
+                    }]
+                },
+                options: {
+                    indexAxis: 'y', // Horizontal bar chart
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: (context) => `Value: $${context.raw} Billion`
+                            }
+                        },
+                        datalabels: {
+                            color: '#fff',
+                            font: { weight: 'bold' },
+                            formatter: (value) => '$' + value + 'B'
+                        }
+                    },
+                    scales: {
+                        x: { beginAtZero: true, title: { display: true, text: 'Value (Billion USD)' } },
+                        y: { grid: { display: false } }
+                    }
+                }
+            });
+        }
+
+        function createPhilippinesPaymentMethodBreakdownChart() {
+            const ctx = document.getElementById('philippinesPaymentMethodBreakdownChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: syntheticData.philippines.paymentMethodBreakdown.labels,
+                    datasets: [{
+                        data: syntheticData.philippines.paymentMethodBreakdown.data,
+                        backgroundColor: [chartColors.primary, chartColors.secondary, chartColors.success, chartColors.danger, chartColors.gray],
+                        hoverOffset: 4,
+                        borderWidth: 2,
+                        borderColor: '#ffffff',
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        tooltip: {
+                            callbacks: {
+                                label: (context) => `${context.label}: ${context.raw}%`
+                            }
+                        },
+                        datalabels: {
+                            color: '#fff',
+                            font: { weight: 'bold' },
+                            formatter: (value) => value + '%'
+                        }
+                    }
+                }
+            });
+        }
+
+        // Comparative Charts
+        // This function is now removed as it's replaced by an infographic
+        /*
+        function createComparativeAdoptionChart() {
+            const ctx = document.getElementById('comparativeAdoptionChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: syntheticData.comparative.adoptionTrajectories.labels,
+                    datasets: [
+                        {
+                            label: 'Malaysia E-payment Transactions Per Capita',
+                            data: syntheticData.comparative.adoptionTrajectories.malaysiaPerCapita,
+                            borderColor: chartColors.primary,
+                            backgroundColor: 'rgba(44, 82, 130, 0.2)',
+                            fill: false,
+                            tension: 0.3,
+                            pointBackgroundColor: chartColors.primary,
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: chartColors.primary,
+                            pointRadius: 5,
+                            pointHoverRadius: 7,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: 'Philippines Digital Payment Volume Share (%)',
+                            data: syntheticData.comparative.adoptionTrajectories.philippinesDigitalVolumeShare,
+                            borderColor: chartColors.success,
+                            backgroundColor: 'rgba(76, 175, 80, 0.2)',
+                            fill: false,
+                            tension: 0.3,
+                            pointBackgroundColor: chartColors.success,
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: chartColors.success,
+                            pointRadius: 5,
+                            pointHoverRadius: 7,
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.dataset.yAxisID === 'y') {
+                                        label += context.raw + ' Transactions';
+                                    } else {
+                                        label += context.raw + '%';
+                                    }
+                                    return label;
+                                }
+                            }
+                        },
+                        datalabels: { display: false }
+                    },
+                    scales: {
+                        x: { grid: { display: false } },
+                        y: {
+                            beginAtZero: true,
+                            position: 'left',
+                            title: { display: true, text: 'MY Per Capita Transactions' }
+                        },
+                        y1: {
+                            beginAtZero: true,
+                            position: 'right',
+                            title: { display: true, text: 'PH Digital Volume Share (%)' },
+                            grid: { drawOnChartArea: false }
+                        }
+                    }
+                }
+            });
+        }
+        */
+
+        function createComparativeRegulatoryRadarChart() {
+            const ctx = document.getElementById('comparativeRegulatoryRadarChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: syntheticData.comparative.regulatoryFocus.labels,
+                    datasets: [
+                        {
+                            label: 'Malaysia (BNM) Focus',
+                            data: syntheticData.comparative.regulatoryFocus.malaysia,
+                            backgroundColor: 'rgba(44, 82, 130, 0.4)',
+                            borderColor: chartColors.primary,
+                            pointBackgroundColor: chartColors.primary,
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: chartColors.primary,
+                        },
+                        {
+                            label: 'Philippines (BSP) Focus',
+                            data: syntheticData.comparative.regulatoryFocus.philippines,
+                            backgroundColor: 'rgba(76, 175, 80, 0.4)',
+                            borderColor: chartColors.success,
+                            pointBackgroundColor: chartColors.success,
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: chartColors.success,
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        tooltip: {
+                            callbacks: {
+                                label: (context) => `${context.dataset.label}: ${context.raw}/10`
+                            }
+                        },
+                        datalabels: { display: false }
+                    },
+                    scales: {
+                        r: {
+                            angleLines: { display: false },
+                            suggestedMin: 0,
+                            suggestedMax: 10,
+                            pointLabels: {
+                                font: { size: 12, weight: 'bold' },
+                                color: chartColors.darkGray
+                            },
+                            ticks: { display: false }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createComparativeEcosystemStrengthChart() {
+            const ctx = document.getElementById('comparativeEcosystemStrengthChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: syntheticData.comparative.ecosystemStrength.labels,
+                    datasets: [
+                        {
+                            label: 'Malaysia Ecosystem Strength',
+                            data: syntheticData.comparative.ecosystemStrength.malaysia,
+                            backgroundColor: 'rgba(99, 102, 241, 0.4)',
+                            borderColor: chartColors.indigo,
+                            pointBackgroundColor: chartColors.indigo,
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: chartColors.indigo,
+                        },
+                        {
+                            label: 'Philippines Ecosystem Strength',
+                            data: syntheticData.comparative.ecosystemStrength.philippines,
+                            backgroundColor: 'rgba(56, 178, 172, 0.4)',
+                            borderColor: chartColors.teal,
+                            pointBackgroundColor: chartColors.teal,
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: chartColors.teal,
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        tooltip: {
+                            callbacks: {
+                                label: (context) => `${context.dataset.label}: ${context.raw}/10`
+                            }
+                        },
+                        datalabels: { display: false }
+                    },
+                    scales: {
+                        r: {
+                            angleLines: { display: false },
+                            suggestedMin: 0,
+                            suggestedMax: 10,
+                            pointLabels: {
+                                font: { size: 12, weight: 'bold' },
+                                color: chartColors.darkGray
+                            },
+                            ticks: { display: false }
+                        }
+                    }
+                }
+            });
+        }
+
+
+        // Run all chart creation functions on window load
+        window.onload = function() {
+            createMalaysiaOverallGrowthChart();
+            // createMalaysiaPerCapitaChart(); // Replaced by infographic
+            createMalaysiaCashVsEwalletChart();
+            createMalaysiaEwalletMarketShareChart();
+            // createMalaysiaPaymentInstrumentMixChart(); // Removed to streamline
+            createMalaysiaDuitNowQRChart();
+            createMalaysiaBNPLProjectionChart();
+
+            createPhilippinesDigitalShareChart();
+            createPhilippinesUseCasesChart(); // Now with exploded slice
+            createPhilippinesEwalletMarketShareChart();
+            createPhilippinesInstaPayPESONetChart();
+            createPhilippinesBNPLUsersChart();
+            createPhilippinesPrepaidDigitalWalletChart();
+            // createPhilippinesPaymentMethodBreakdownChart(); // Removed to streamline
+
+            // createComparativeAdoptionChart(); // Replaced by infographic
+            // createComparativeBNPLCAGRChart(); // Replaced by infographic
+            createComparativeRegulatoryRadarChart();
+            createComparativeEcosystemStrengthChart();
+        };
+    </script>
+</body>
+</html>
