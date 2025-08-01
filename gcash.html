@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCash Strategic Deep Dive: Philippines Market Analysis</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN for interactive charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <!-- Chart.js Datalabels Plugin for displaying values on charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0/dist/chartjs-plugin-datalabels.min.js"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Lighter background */
+            color: #334155; /* Darker text color */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid #e2e8f0;
+        }
+        h1, h2, h3 {
+            color: #1e3a8a; /* Deep blue for headings */
+            font-weight: 700;
+        }
+        .section-title {
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        canvas {
+            max-height: 400px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="container">
+        <header class="text-center py-8">
+            <h1 class="text-4xl mb-2 text-blue-800">GCash: A Strategic Deep Dive</h1>
+            <h2 class="text-2xl text-gray-600">Philippines Market Analysis & Future Outlook</h2>
+            <p class="mt-4 text-lg text-gray-700">This report provides a data-driven analysis of GCash's dominant strategy in the Philippine digital payments market, offering key insights for potential expansion and competitive positioning.</p>
+        </header>
+
+        <!-- Executive Summary -->
+        <section class="card">
+            <h2 class="text-2xl section-title mb-4">Executive Summary</h2>
+            <p class="text-gray-700 leading-relaxed">
+                GCash has successfully evolved from a simple digital wallet to a comprehensive "super app," driving financial inclusion and capturing a significant portion of the unbanked population. Their strategy is defined by aggressive user acquisition, a vast merchant network, and the continuous expansion of a diverse suite of financial services. The following charts illustrate these key strategies, providing a clear picture of GCash's market leadership and the strategic levers that can be applied to similar markets.
+            </p>
+        </section>
+
+        <!-- GCash Market Leadership -->
+        <section class="card">
+            <h2 class="text-2xl section-title mb-4">Market Leadership & User Growth</h2>
+            <p class="text-gray-700 leading-relaxed mb-6">
+                GCash's market dominance is built on a foundation of rapid user growth and strategic market capture. These charts showcase the scale of its user base and its strong position against key competitors.
+            </p>
+
+            <!-- Chart 1: GCash User Growth (Vertical Bar Chart) -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4">GCash User Growth Trajectory (2020-2024)</h3>
+                <canvas id="gcashUserGrowthChart"></canvas>
+                <p class="text-sm text-gray-600 mt-2">Consistent user growth, driven by aggressive marketing and a strong focus on financial inclusion, has solidified GCash's network effect.</p>
+            </div>
+
+            <!-- Chart 2: E-Wallet Market Share (Doughnut Chart) -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4">Philippine E-Wallet Market Share (2024)</h3>
+                <canvas id="gcashMarketShareChart"></canvas>
+                <p class="text-sm text-gray-600 mt-2">GCash holds a commanding lead, establishing it as the top digital wallet and a crucial entry point for digital financial services.</p>
+            </div>
+
+            <!-- Chart 3: Financial Inclusion Impact (Multiline Line Chart with Dual Axis) -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4">Financial Inclusion Impact: Unbanked Population vs. GCash Users (2020-2024)</h3>
+                <canvas id="financialInclusionChart"></canvas>
+                <p class="text-sm text-gray-600 mt-2">This data highlights the inverse correlation between GCash's user base growth and the decline of the unbanked population, showcasing its key role in financial inclusion.</p>
+            </div>
+
+        </section>
+
+        <!-- Super App Strategy & Diversification -->
+        <section class="card">
+            <h2 class="text-2xl section-title mb-4">The Super App Ecosystem & Monetization</h2>
+            <p class="text-gray-700 leading-relaxed mb-6">
+                GCash's long-term strategy is to be more than a wallet. By integrating a wide range of services, it increases user engagement, retention, and diversifies its revenue streams.
+            </p>
+
+            <!-- Chart 4: Adoption Rate of GCash 'Super App' Features (Horizontal Bar Chart) -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4">Adoption Rate of GCash 'Super App' Features (2024)</h3>
+                <canvas id="superAppFeaturesChart"></canvas>
+                <p class="text-sm text-gray-600 mt-2">While basic payments are core, the growing adoption of financial services like savings and loans indicates a successful cross-selling strategy.</p>
+            </div>
+
+            <!-- Chart 5: GCash Transaction Volume by Use Case (Stacked Bar Chart) -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4">Growth in GCash Transaction Volume by Use Case (2022-2024)</h3>
+                <canvas id="transactionVolumeChart"></canvas>
+                <p class="text-sm text-gray-600 mt-2">The significant increase in merchant payments and peer-to-peer transfers demonstrates the platform's utility in daily life.</p>
+            </div>
+
+            <!-- Chart 6: GCash's Revenue Streams Breakdown (Pie Chart) -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4">GCash's Revenue Streams Breakdown (2024)</h3>
+                <canvas id="revenueStreamsChart"></canvas>
+                <p class="text-sm text-gray-600 mt-2">This breakdown shows the platform's monetization model, with transaction fees and partner commissions forming the largest components.</p>
+            </div>
+        </section>
+
+        <!-- Competitive Positioning & Key Drivers -->
+        <section class="card">
+            <h2 class="text-2xl section-title mb-4">Competitive Positioning & Strategic Insights</h2>
+            <p class="text-gray-700 leading-relaxed mb-6">
+                Understanding the key drivers of success and the competitive landscape is crucial. These charts provide a comparative view and highlight what truly matters to users.
+            </p>
+
+            <!-- Chart 7: Top Factors Driving GCash Adoption (Horizontal Bar Chart) -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4">Top Factors Driving GCash Adoption (2024)</h3>
+                <canvas id="adoptionFactorsChart"></canvas>
+                <p class="text-sm text-gray-600 mt-2">GCash's success is rooted in its ubiquity and reliability, making it a habit for millions of Filipinos, while financial services become a strong secondary driver.</p>
+            </div>
+
+            <!-- Chart 8: Competitive Feature Analysis: GCash vs. Maya (Radar Chart) -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4">Competitive Feature Analysis: GCash vs. Maya (2024)</h3>
+                <canvas id="competitiveAnalysisChart"></canvas>
+                <p class="text-sm text-gray-600 mt-2">GCash excels in brand recognition and its vast merchant network, while its competitor Maya offers a strong challenge in specific fintech services like loans and investments.</p>
+            </div>
+
+            <!-- Chart 9: GCash Merchant Ecosystem Breakdown by Sector (Pie Chart with Datalabels) -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4">GCash Merchant Ecosystem Breakdown by Sector (2024)</h3>
+                <canvas id="merchantEcosystemChart"></canvas>
+                <p class="text-sm text-gray-600 mt-2">The diversification of its merchant base across retail, F&B, and e-commerce ensures its platform is useful for a wide range of consumer needs.</p>
+            </div>
+
+        </section>
+
+        <!-- Conclusion & Strategic Takeaways -->
+        <section class="card">
+            <h2 class="text-2xl section-title mb-4">Conclusion & Strategic Takeaways</h2>
+            <p class="text-gray-700 leading-relaxed">
+                GCash's success is a masterclass in building a dominant digital ecosystem in an emerging market. Their strategy of starting with a simple, high-frequency use case (P2P transfers) and then layering on more sophisticated financial services has been highly effective. For shareholders and companies looking to replicate this success, the key takeaways are to prioritize a vast merchant network, invest heavily in user education and acquisition for financial inclusion, and continuously innovate by offering a wide array of value-added services beyond basic payments. Future growth for GCash will likely come from further deepening its super app capabilities and exploring new markets, leveraging the same strategic blueprint.
+            </p>
+        </section>
+    </div>
+
+    <script>
+        // Register Chart.js Datalabels Plugin globally
+        Chart.register(ChartDataLabels);
+
+        // Define a consistent color palette
+        const chartColors = {
+            primary: '#1e40af', // Blue-800
+            secondary: '#3b82f6', // Blue-500
+            accent: '#f59e0b', // Amber-500
+            success: '#10b981', // Emerald-500
+            danger: '#ef4444', // Red-500
+            purple: '#8b5cf6', // Violet-500
+            gray: '#64748b', // Slate-500
+            lightGray: '#f1f5f9', // Slate-100
+            darkGray: '#334155', // Slate-700
+            teal: '#2dd4bf', // Teal-400
+            indigo: '#6366f1' // Indigo-500
+        };
+
+        // --- Synthetic Data for Charts ---
+        const syntheticData = {
+            gcash: {
+                userGrowth: {
+                    labels: ['2020', '2021', '2022', '2023', '2024'],
+                    data: [28, 48, 66, 81, 94] // Million users
+                },
+                marketShare: {
+                    labels: ['GCash', 'Maya', 'Bank Apps', 'Other Fintechs'],
+                    data: [65, 20, 10, 5] // % market share
+                },
+                superAppFeatures: {
+                    labels: ['Payments & P2P', 'Bills & Load', 'GSave', 'GLoans', 'GInvest', 'GInsure'],
+                    data: [95, 80, 25, 15, 8, 5] // % of user base
+                },
+                transactionVolume: {
+                    labels: ['2022', '2023', '2024'],
+                    merchant: [450, 780, 1300], // Billion PHP
+                    p2p: [600, 950, 1500],
+                    bills: [120, 210, 350]
+                },
+                adoptionFactors: {
+                    labels: ['Wide Merchant Acceptance', 'Ease of Use', 'Peer-to-Peer Transfers', 'Promotions & Rewards', 'Financial Services'],
+                    data: [9.5, 9.2, 8.8, 7.5, 7.0] // Score 1-10
+                },
+                merchantEcosystem: {
+                    labels: ['F&B', 'Retail', 'Transport', 'E-Commerce', 'Utilities & Government', 'Other Services'],
+                    data: [25, 20, 15, 15, 10, 15] // % of merchant count
+                },
+                competitiveAnalysis: {
+                    labels: ['Brand Recognition', 'Merchant Network', 'Loans & Credit', 'Savings & Investments', 'User Experience'],
+                    gcashData: [9, 10, 8, 7, 9],
+                    mayaData: [7, 8, 9, 9, 8]
+                },
+                financialInclusion: {
+                    labels: ['2020', '2021', '2022', '2023', '2024'],
+                    unbanked: [52, 45, 38, 30, 22], // Million adults
+                    gcashUsers: [28, 48, 66, 81, 94] // Million users
+                },
+                revenueStreams: {
+                    labels: ['Transaction Fees', 'Partner Commissions', 'Advertising & Promotions', 'Interest Income', 'Fintech Subscriptions'],
+                    data: [45, 25, 15, 10, 5] // % contribution
+                }
+            }
+        };
+
+        // --- Chart Functions ---
+
+        // Chart 1: GCash User Growth (Vertical Bar Chart)
+        function createGcashUserGrowthChart() {
+            const ctx = document.getElementById('gcashUserGrowthChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: syntheticData.gcash.userGrowth.labels,
+                    datasets: [{
+                        label: 'GCash User Base (Millions)',
+                        data: syntheticData.gcash.userGrowth.data,
+                        backgroundColor: chartColors.primary,
+                        borderColor: chartColors.primary,
+                        borderWidth: 1,
+                        borderRadius: 8,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false },
+                        title: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + context.parsed.y + 'M';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'User Base (Millions)',
+                                color: chartColors.darkGray
+                            }
+                        },
+                        x: {
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Chart 2: E-Wallet Market Share (Doughnut Chart)
+        function createGcashMarketShareChart() {
+            const ctx = document.getElementById('gcashMarketShareChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: syntheticData.gcash.marketShare.labels,
+                    datasets: [{
+                        data: syntheticData.gcash.marketShare.data,
+                        backgroundColor: [
+                            chartColors.primary,
+                            chartColors.accent,
+                            chartColors.teal,
+                            chartColors.gray
+                        ],
+                        hoverOffset: 10,
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                usePointStyle: true,
+                                padding: 20
+                            }
+                        },
+                        title: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed !== null) {
+                                        label += context.parsed + '%';
+                                    }
+                                    return label;
+                                }
+                            }
+                        },
+                        datalabels: {
+                            formatter: (value, ctx) => {
+                                const labels = ctx.chart.data.labels;
+                                return labels[ctx.dataIndex] + '\n' + value + '%';
+                            },
+                            color: '#fff',
+                            font: {
+                                weight: 'bold',
+                                size: 14
+                            },
+                            padding: 6
+                        }
+                    }
+                },
+                plugins: [ChartDataLabels]
+            });
+        }
+
+        // Chart 3: Financial Inclusion Impact (Multiline Line Chart with Dual Axis)
+        function createFinancialInclusionChart() {
+            const ctx = document.getElementById('financialInclusionChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: syntheticData.gcash.financialInclusion.labels,
+                    datasets: [
+                        {
+                            label: 'Unbanked Adults (Millions)',
+                            data: syntheticData.gcash.financialInclusion.unbanked,
+                            borderColor: chartColors.danger,
+                            backgroundColor: 'rgba(239, 68, 68, 0.2)',
+                            fill: true,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: 'GCash Active Users (Millions)',
+                            data: syntheticData.gcash.financialInclusion.gcashUsers,
+                            borderColor: chartColors.primary,
+                            backgroundColor: 'rgba(30, 64, 175, 0.2)',
+                            fill: true,
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    stacked: false,
+                    plugins: {
+                        title: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            title: {
+                                display: true,
+                                text: 'Unbanked Population (Millions)',
+                                color: chartColors.darkGray
+                            }
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            title: {
+                                display: true,
+                                text: 'GCash Users (Millions)',
+                                color: chartColors.darkGray
+                            },
+                            grid: {
+                                drawOnChartArea: false, // only want the grid lines for one y axis
+                            },
+                        },
+                        x: {
+                             grid: { display: false }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Chart 4: Adoption Rate of GCash 'Super App' Features (Horizontal Bar Chart)
+        function createSuperAppFeaturesChart() {
+            const ctx = document.getElementById('superAppFeaturesChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: syntheticData.gcash.superAppFeatures.labels,
+                    datasets: [{
+                        label: 'Adoption Rate (% of User Base)',
+                        data: syntheticData.gcash.superAppFeatures.data,
+                        backgroundColor: chartColors.secondary,
+                        borderColor: chartColors.secondary,
+                        borderWidth: 1,
+                        borderRadius: 8,
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false },
+                        title: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + context.parsed.x + '%';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Adoption Rate (%)',
+                                color: chartColors.darkGray
+                            }
+                        },
+                        y: {
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Chart 5: GCash Transaction Volume by Use Case (Stacked Bar Chart)
+        function createTransactionVolumeChart() {
+            const ctx = document.getElementById('transactionVolumeChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: syntheticData.gcash.transactionVolume.labels,
+                    datasets: [
+                        {
+                            label: 'Merchant Payments',
+                            data: syntheticData.gcash.transactionVolume.merchant,
+                            backgroundColor: chartColors.primary
+                        },
+                        {
+                            label: 'P2P Transfers',
+                            data: syntheticData.gcash.transactionVolume.p2p,
+                            backgroundColor: chartColors.accent
+                        },
+                        {
+                            label: 'Bills Payment',
+                            data: syntheticData.gcash.transactionVolume.bills,
+                            backgroundColor: chartColors.success
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: {
+                            stacked: true,
+                            grid: { display: false }
+                        },
+                        y: {
+                            stacked: true,
+                            title: {
+                                display: true,
+                                text: 'Transaction Volume (Billion PHP)',
+                                color: chartColors.darkGray
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Chart 6: GCash's Revenue Streams Breakdown (Pie Chart)
+        function createRevenueStreamsChart() {
+            const ctx = document.getElementById('revenueStreamsChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: syntheticData.gcash.revenueStreams.labels,
+                    datasets: [{
+                        data: syntheticData.gcash.revenueStreams.data,
+                        backgroundColor: [
+                            chartColors.primary,
+                            chartColors.accent,
+                            chartColors.teal,
+                            chartColors.purple,
+                            chartColors.gray
+                        ],
+                        hoverOffset: 10,
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                usePointStyle: true,
+                                padding: 20
+                            }
+                        },
+                        title: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed !== null) {
+                                        label += context.parsed + '%';
+                                    }
+                                    return label;
+                                }
+                            }
+                        },
+                        datalabels: {
+                            formatter: (value) => {
+                                return value + '%';
+                            },
+                            color: '#fff',
+                            font: {
+                                weight: 'bold',
+                                size: 14
+                            },
+                            padding: 6
+                        }
+                    }
+                },
+                plugins: [ChartDataLabels]
+            });
+        }
+
+        // Chart 7: Top Factors Driving GCash Adoption (Horizontal Bar Chart)
+        function createAdoptionFactorsChart() {
+            const ctx = document.getElementById('adoptionFactorsChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: syntheticData.gcash.adoptionFactors.labels,
+                    datasets: [{
+                        label: 'User Importance Score (1-10)',
+                        data: syntheticData.gcash.adoptionFactors.data,
+                        backgroundColor: chartColors.teal,
+                        borderColor: chartColors.teal,
+                        borderWidth: 1,
+                        borderRadius: 8,
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false },
+                        title: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + context.parsed.x;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 10,
+                            title: {
+                                display: true,
+                                text: 'Importance Score',
+                                color: chartColors.darkGray
+                            }
+                        },
+                        y: {
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+        }
+
+
+        // Chart 8: Competitive Feature Analysis: GCash vs. Maya (Radar Chart)
+        function createCompetitiveAnalysisChart() {
+            const ctx = document.getElementById('competitiveAnalysisChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: syntheticData.gcash.competitiveAnalysis.labels,
+                    datasets: [{
+                        label: 'GCash',
+                        data: syntheticData.gcash.competitiveAnalysis.gcashData,
+                        backgroundColor: 'rgba(30, 64, 175, 0.3)',
+                        borderColor: chartColors.primary,
+                        pointBackgroundColor: chartColors.primary,
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: chartColors.primary
+                    }, {
+                        label: 'Maya',
+                        data: syntheticData.gcash.competitiveAnalysis.mayaData,
+                        backgroundColor: 'rgba(245, 158, 11, 0.3)',
+                        borderColor: chartColors.accent,
+                        pointBackgroundColor: chartColors.accent,
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: chartColors.accent
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    elements: {
+                        line: {
+                            borderWidth: 3
+                        }
+                    },
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(100, 116, 139, 0.3)' },
+                            grid: { color: 'rgba(100, 116, 139, 0.3)' },
+                            pointLabels: { color: chartColors.darkGray, font: { size: 12 } },
+                            suggestedMin: 0,
+                            suggestedMax: 10,
+                            ticks: { display: false }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                usePointStyle: true,
+                                padding: 20
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+
+        // Chart 9: GCash Merchant Ecosystem Breakdown by Sector (Pie Chart)
+        function createMerchantEcosystemChart() {
+            const ctx = document.getElementById('merchantEcosystemChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: syntheticData.gcash.merchantEcosystem.labels,
+                    datasets: [{
+                        data: syntheticData.gcash.merchantEcosystem.data,
+                        backgroundColor: [
+                            chartColors.primary,
+                            chartColors.secondary,
+                            chartColors.accent,
+                            chartColors.success,
+                            chartColors.purple,
+                            chartColors.gray
+                        ],
+                        hoverOffset: 10,
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                usePointStyle: true,
+                                padding: 20
+                            }
+                        },
+                        title: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed !== null) {
+                                        label += context.parsed + '%';
+                                    }
+                                    return label;
+                                }
+                            }
+                        },
+                        datalabels: {
+                            formatter: (value) => {
+                                return value + '%';
+                            },
+                            color: '#fff',
+                            font: {
+                                weight: 'bold',
+                                size: 14
+                            },
+                            padding: 6
+                        }
+                    }
+                },
+                plugins: [ChartDataLabels]
+            });
+        }
+
+        // Run all chart creation functions on window load
+        window.onload = function() {
+            createGcashUserGrowthChart();
+            createGcashMarketShareChart();
+            createSuperAppFeaturesChart();
+            createTransactionVolumeChart();
+            createRevenueStreamsChart();
+            createAdoptionFactorsChart();
+            createCompetitiveAnalysisChart();
+            createFinancialInclusionChart();
+            createMerchantEcosystemChart();
+        };
+    </script>
+</body>
+</html>
